@@ -1,0 +1,149 @@
+# Benvenuto in Jekyll!
+#
+# Questo file di configurazione è pensato per impostazioni che interessano tutto il blog,
+# valori che in genere imposti una volta e modifichi raramente. Se ti ritrovi a modificare
+# spesso questo file, valuta di usare i file di dati di Jekyll per le informazioni che
+# aggiorni di frequente.
+#
+# Per ragioni tecniche, questo file NON viene ricaricato automaticamente quando usi
+# 'bundle exec jekyll serve'. Se lo modifichi, riavvia il processo del server.
+#
+# Se ti serve aiuto con la sintassi YAML, ecco alcune rapide reference:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+
+# Impostazioni del sito
+# Queste impostazioni personalizzano il sito. Nei file HTML le troverai tramite
+# {{ site.title }}, {{ site.email }}, ecc. Puoi creare variabili personalizzate:
+# saranno accessibili nei template tramite {{ site.myvariable }}.
+
+title: "Oltre la Montagna - Big Data Project"
+subtitle: "Progetto di Data Science"
+description: >- # ignora i ritorni a capo fino a "baseurl:"
+  Un progetto di data science che analizza lo spopolamento dei piccoli comuni
+  montani italiani, incrociando dati demografici, economici, climatici e
+  infrastrutturali con l'esperienza diretta di chi vive la montagna ogni giorno.
+
+
+# Riportare il github del gruppo di progetto e quello del sito web (se differente).
+# Tali informazioni appariranno nel Footer del sito.
+github_repo:
+  - name: "Repository del progetto Oltre la Montagna"
+    url: "https://github.com/pellizzerfabiotommy/g3-2026-website"
+
+markdown: kramdown
+
+baseurl: "/g3-2026-website-main"
+#baseurl: ""
+url: "" # se pubblichi su GitHub Pages, inserisci qui "https://TUO_USERNAME.github.io"
+
+#################################
+#    Configurazione navigazione #
+#################################
+
+navbar:
+  style :  dual # non modificarlo: imposta lo stile della navbar.
+  brand: # brand della navbar, mostrato a sinistra.
+    title :  "Oltre la montagna"
+    img: "/assets/images/Logo_masthead.png" # non modificare
+    url: /
+  nav:
+  - title: Home
+    url: /
+  - title: Metodologia
+    url: /metodologia/
+  - title: Risultati
+    url: /risultati/
+  - title: Casi Studio
+    url: /casi-studio/
+
+  - title: SBD Master # deve essere sempre l'ultimo elemento della navbar, non modificarlo
+    url: https://masterbigdata.it/
+
+###########################
+#     Aspetto generale    #
+###########################
+
+#googlefonts:
+#  - url: "https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+#  - url: "https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+#  - url: "https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&1,700&display=swap"
+
+## Esempio Google Fonts per importare Space Mono
+googlefonts:
+  - url: "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+
+chulapa-skin:
+  skin: "academia"
+  css: "assets/css/custom.css"
+  vars:
+    font-family-base: "Ubuntu, sans-serif"
+    primary: "#145b22"
+    secondary: "#dfd3b9"
+
+#chulapa-skin:
+  #autothemer  :  true
+  #vars:
+    #primary: "#07286E"
+
+
+
+##################################################
+#    Non modificare nulla sotto questa riga      #
+##################################################
+
+# Impostazioni di build
+#theme: chulapa-jekyll # va usato il remote-theme!!!
+plugins:
+  - jekyll-feed
+  - jekyll-remote-theme
+  - jekyll-include-cache
+
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
+footer:
+  links:
+  - label: "LinkedIn"
+    icon: "fab fa-linkedin"
+    url: https://www.linkedin.com/company/sobigdata
+  - label: "Twitter"
+    icon: "fab fa-twitter"
+    url: https://www.twitter.com/sobigdata
+  copyright: "2026 SoBigData RI"
+
+
+sass:
+  quiet_deps: true
+
+# Gli elementi esclusi possono essere elaborati elencando esplicitamente le directory o
+# i relativi percorsi file nella lista `include:`.
+#
+exclude:
+ - .sass-cache/
+ - .jekyll-cache/
+ - gemfiles/
+ - Gemfile
+ - Gemfile.lock
+ - node_modules/
+ - vendor/bundle/
+ - vendor/cache/
+ - vendor/gems/
+ - vendor/ruby/
+ - .idea/
+
+
+livereload: true
+
+remote_theme: dieghernan/chulapa
+
+future: true
+
+defaults:
+  - scope:
+      path: "assets/images/thumb-charts"
+    values:
+      image_col: charts
