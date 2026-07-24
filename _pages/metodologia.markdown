@@ -6,6 +6,8 @@ permalink: /metodologia/
 
 # La nostra Metodologia
 
+Abbiamo affrontato la relazione tra geografia, turismo, clima, immobili e spopolamento da due direzioni opposte e complementari. 
+
 Il rigore scientifico è alla base della nostra analisi. Di seguito i passaggi seguiti per arrivare ai risultati.
 
 L'analisi si basa sull'integrazione di diverse fonti pubbliche, raccolte ed elaborate attraverso un mix di strumenti automatizzati (API, script di scraping) e verifiche manuali, per un totale di dati relativi a circa 3.000 comuni italiani.
