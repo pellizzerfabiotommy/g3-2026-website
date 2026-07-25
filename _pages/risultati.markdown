@@ -6,67 +6,121 @@ permalink: /risultati/
 
 # Risultati
 
-## Una tipologia dei territori oltre lo spopolamento
+## Oltre l'altitudine 
 
-L'applicazione di tecniche di clustering non supervisionato ha permesso di superare una lettura uniforme dello spopolamento, mostrando come i piccoli comuni italiani — e in particolare quelli montani — non costituiscano un insieme omogeneo, ma un mosaico di territori con traiettorie evolutive differenti, determinate dalla combinazione di accessibilità ai servizi, contesto altimetrico, rischio idrogeologico, dinamiche climatiche, valori immobiliari e andamento demografico di lungo periodo.
+L'applicazione di tecniche di data analysis e clustering ha permesso di superare una lettura uniforme dello spopolamento, mostrando come i piccoli comuni italiani — e in particolare quelli montani — non costituiscano un insieme omogeneo, ma un mosaico di territori con traiettorie evolutive differenti, determinate dalla combinazione di accessibilità ai servizi, contesto altimetrico, rischio idrogeologico, dinamiche climatiche, valori immobiliari e andamento demografico di lungo periodo.
 
-L'analisi è stata condotta su due livelli:
 
-1. **Clustering generale**, su tutti i comuni italiani con meno di 15.000 abitanti;
-2. **Clustering di approfondimento**, applicato esclusivamente ai comuni montani, per indagare le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
 
----
+1. **IL PANORAMA NAZIONALE**EDA su aspetti di accessibilità, turismo, demografia e redditi su comuni italiani e aree alpine
+--MAPPE/VISUALIZZAZIONE
 
-## Primo livello: i comuni sotto i 15.000 abitanti
+ 
 
-Il clustering individua **sette profili territoriali**, sintetizzabili in tre macro-categorie:
+Mappa spopolamento 
 
-| Macro-categoria | Cluster | Caratteristiche principali |
-|---|---|---|
-| **Resilienti** | 0 – Comuni accessibili e in crescita | Bassa quota, ottima accessibilità (13,6 min), crescita demografica +28% dal 1992 |
-| | 6 – Comuni periurbani in espansione | Aree collinari, vicine ai poli urbani, crescita +8%, basso rischio idrogeologico |
-| **Vulnerabili** | 3 – Elevata vulnerabilità idrogeologica | Quote medio-alte, forte esposizione al rischio PAI P3-P4 |
-| | 5 – Comuni periferici in declino | Altitudine più elevata, accessibilità minima (44 min), calo demografico -19% |
-| **Intermedi** | 1 – Pregio immobiliare montano | Alta quota, valori immobiliari più alti del campione (>3.000 €/m²), stabilità demografica |
-| | 2 – Esposti al cambiamento climatico | Maggiore incremento di temperatura (+2,47°C), lieve calo demografico |
-| | 4 – Periurbani ad alta pressione | Crescita +5%, ma massima esposizione della popolazione al rischio idrogeologico |
+<div id="mappaSpopolamento"></div>
 
-**In sintesi:** accessibilità ai poli urbani e dinamiche demografiche risultano le variabili più discriminanti, mentre altitudine, rischio idrogeologico e valori immobiliari contribuiscono a definire forme differenti di fragilità territoriale.
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
----
+<script>
+  vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/mapppa_spopolament.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
-## Secondo livello: focus sui comuni montani
+Mappa accessibilità 
 
-Isolando la sola componente montana, l'analisi individua **sette profili specifici**, articolati attorno a cinque dimensioni: accessibilità ai servizi, intensità del cambiamento climatico, trasformazione del manto nevoso, struttura demografica e valorizzazione economica (mercato immobiliare, impianti sciistici).
+<div id="mappaAccessiblita"></div>
 
-| Macro-categoria | Cluster | Caratteristiche principali |
-|---|---|---|
-| **Resilienti** | 0 – Montagna accessibile e stabile | Buona accessibilità (~20 min), crescita demografica +22% dal 1992 |
-| | 5 – Comprensori sciistici ad alta valorizzazione | Quota molto elevata, impianti sciistici nell'87% dei comuni, valori immobiliari ~2.900 €/m², crescita +11% |
-| **Vulnerabili** | 2 – Montagna fragile e invecchiata | Forte declino (-30%), quota anziani 38%, bassa accessibilità |
-| | 3 – Esposta alla crisi climatica | Massima perdita di neve (-11,2), temperatura +2,54°C, demografia -5% |
-| | 6 – Alta montagna in trasformazione | Impianti presenti ma insufficienti a garantire stabilità, demografia -15% |
-| **In transizione** | 1 – Montagna interna stabile | Isolata ma demograficamente stabile (+1%), fragilità legata alla distanza dai servizi |
-| | 4 – Montagna turistica intermedia | Buona tenuta demografica (+4%), ma perdita di neve significativa (-6,7) |
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-**In sintesi:** rispetto al quadro generale, la componente montana evidenzia con maggiore forza il ruolo del **cambiamento climatico** — in particolare la perdita di manto nevoso — come fattore di vulnerabilità distinto dal semplice isolamento geografico, capace di mettere in discussione anche i modelli economici legati al turismo invernale.
+<script>
+  vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/test_access.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
----
+2. **Clustering su serie storica demografica**
 
-## Implicazioni per le politiche territoriali
 
-I risultati indicano che non esiste una politica unica, né per i piccoli comuni in generale né per la montagna in particolare:
+
+3. **Clustering nazionale**, su tutti i comuni italiani, utilizzando dati del triennio 2023-2025
+
+
+
+4. **Clustering sui comuni italiani sotto i 15.000 abitanti**
+plot imp features 
+
+
+
+<div id="clusterItaliaGinevra"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#clusterItaliaGinevra', '{{ site.baseurl }}/assets/charts/clustering_italia.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+5. **Clustering sui comuni Alpini su features.... ** 
+esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
+
+
+
+6. **Clustering sui comuni Alpini su features bla bla** 
+plot feature importance SHAP
+
+7. **Classificazione**
+    - random forest nazionale
+    - random forest montano 
+ 
+---spiegazione  
+
+ 
+  
+
+## INTERPRETAZIONE DEI RISULTATI 
+
+I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non solo non basta a proteggere la sopravvivenza demografica della montagna, ma può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
+Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili posso presentare alta vocazione turistica (l'interesse verso alcuni luoghi fa superare alcune barriere, e forse è tipco di certe destinazioni l'essere isolate).
+
+Nel nord, l'altitudine ha un forte potere esplicativo rispetto all'accessibilità. La rete infrastrutturale generale è più solida e risente prevalentemente di limitazioni legate ai territori a quota eleveta; l'accessibilità del centro italia parte da valori più bassi, quella del sud mostra criticità più generali, anche indipendenti dalla quota.
+
+
+Le features maggiormente rilevanti a **livello globale sono**: accessibilità, turismo, redditi, stratificazione demografica. 
+
+
+Le features maggiormente rilevanti a **livello alpino**: accessibilità, turismo, variazioni climatiche, redditi.
+
+Una cosa interessante, che rappresenta un possibile punto di partenza per sviluppi ulteriore, è il fatto che le features rilevanti a livello globale possono giocare ruoli differenti a seconda dei contesti.
 
 - nei **territori resilienti**, l'obiettivo è consolidare i fattori di attrattività (servizi, mobilità, diversificazione economica);
 - nei **territori vulnerabili**, sono prioritari gli interventi contro lo spopolamento, la riduzione del rischio idrogeologico e il mantenimento dei servizi essenziali;
 - nei **territori intermedi/in transizione**, assumono rilievo le strategie di adattamento climatico e la diversificazione dell'economia locale, in particolare riducendo la dipendenza dal turismo legato alla neve.
 
-La classificazione ottenuta fornisce quindi una base analitica per orientare politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
+A livello di comprensione del fenomeno, questa analisi può costituire il punto di partenza per analisi più dettagliate, utilizzando unità analitiche più significative delle unità amministrative (es. aree di comuni che condividono alcuni trend, es. forte spopolamento e pressione turistica vs. crescita e pressione turistica), cambiando granularità nelle analisi (utilizzando dati su flussi stagionali, non solo annuali). 
 
+Può anche offrire un possibile punto di partenza per indirizzare politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
+
+
+
+- il clustering sulle serie storiche ha evidenziato.....
+
+-mappe e grafici hanno confermato che..... 
+
+<script>
+  const chartData = {{ site.data.chart | jsonify }};
+</script>
 ---
 
 ## Dai numeri ai luoghi
 
 Questi profili raccontano dinamiche statistiche su larga scala. Ma cosa significano concretamente per chi vive questi territori? Nella sezione **Casi Studio** raccontiamo da vicino alcuni comuni rappresentativi di questi cluster, incrociando i dati con testimonianze dirette.
 
-[→ Vai ai Casi Studio]({{ '/casi-studio/' | relative_url }})
+[→ Alcuni esempi]({{ '/casi-studio/' | relative_url }})

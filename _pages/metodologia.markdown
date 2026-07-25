@@ -6,12 +6,10 @@ permalink: /metodologia/
 
 # La nostra Metodologia
 
-Il rigore scientifico è alla base della nostra analisi. Di seguito i passaggi seguiti per arrivare ai risultati.
-
-L'analisi si basa sull'integrazione di diverse fonti pubbliche, raccolte ed elaborate attraverso un mix di strumenti automatizzati (API, script di scraping) e verifiche manuali, per un totale di dati relativi a circa 3.000 comuni italiani.
+L'analisi si basa sull'integrazione di diverse fonti pubbliche, raccolte ed elaborate attraverso un mix di strumenti automatizzati (API, script di scraping) e verifiche manuali.
 
 ### ISTAT
-Fonte principale per i dati territoriali, demografici e socioeconomici: popolazione residente, flussi turistici e matrici delle distanze tra comuni. I dati sono stati acquisiti tramite:
+Fonte principale per i dati territoriali, demografici e socioeconomici: popolazione residente, dati reddituali, flussi turistici, strutture ricettive, e matrici delle distanze tra comuni. I dati sono stati acquisiti tramite:
 - **ISTAT API**, per l'estrazione programmatica delle serie storiche disponibili;
 - **web scraping**, per il recupero di dataset non esposti tramite API;
 - **download manuale** dai repository pubblici ISTAT, per gli archivi non altrimenti accessibili.
@@ -25,9 +23,8 @@ Impiegata per calcolare lo storico delle distanze dai principali servizi (sanita
 ### Osservatorio del Mercato Immobiliare (OMI)
 Fonte dei dati sulle quotazioni immobiliari dell'Agenzia delle Entrate e le dinamiche del mercato immobiliare, utilizzata per analizzare l'andamento dei valori e dell'attrattività abitativa nei comuni montani oggetto di studio.
 
----
 
-## Elaborazione
+## Raccolta e Analisi
 
 La raccolta dei dati è stata automatizzata tramite script Python dedicati all'interrogazione delle diverse API, alla trasformazione delle risposte in DataFrame strutturati e al successivo salvataggio in un database SQL, garantendo un'unica base dati consistente e interrogabile per tutte le analisi successive.
 
@@ -36,7 +33,7 @@ Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, sc
 - **Clustering**, per individuare gruppi di comuni con caratteristiche simili in termini di spopolamento, accessibilità e contesto socioeconomico: *K-Means*, *DBSCAN* e clustering *gerarchico*;
 - **Classificazione**, per identificare i fattori più rilevanti nel distinguere comuni a rischio di abbandono da comuni stabili: *Random Forest* e *regressione logistica*;
 - **Regressione lineare**, per quantificare la relazione tra variabili demografiche, infrastrutturali ed economiche;
-- **Regressione su serie storiche**, per modellare l'andamento temporale della popolazione e individuare trend e proiezioni future nei singoli comuni.
+- **Clustering su serie storiche**, per identificare pattern relativi alle serie storiche 
 
 ## Strumenti
 
@@ -47,4 +44,16 @@ Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, sc
   - `scikit-learn` — preprocessing e modelli di machine learning (clustering, classificazione, regressione)
   - `statsmodels` — modelli statistici e regressioni su serie storiche
   - `scipy` — analisi di correlazione e calcolo delle distanze tra osservazioni
-  - `matplotlib`, `seaborn` — visualizzazione dei dati e dei risultati
+  - `matplotlib`, `seaborn`,`Altair` — visualizzazione dei dati e dei risultati
+
+* **Algoritmi:**  
+- ** CLUSTERING: Kmeans, Hierarchical Clustering, Dbscan, Hdbscan, DTW 
+- ** CLASSIFICAZIONE: Random Forest 
+
+# Strategie di preprocessing e feature engineering 
+
+- normalizzazione codice istat per gestire le serie storiche (comuni che si sono accorpati)
+- creazione di indicatori (es. per riassumere serie storiche), aggregazioni
+- ri-organizzazione dei dati, attraverso pivot, raggruppamenti, per ottenere df a granularità una riga per comune 
+- ... 
+- gestione dei nulli attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti

@@ -4,19 +4,21 @@ title: "Home"
 ---
 
 <div class="hero-container text-center">
-  <h1>Oltre la Montagna</h1>
-  <p class="hero-subtitle mx-auto">Analisi dei dati, spopolamento e futuro dei comuni montani italiani.</p>
-  <a href="{{ '/risultati/' | relative_url }}" class="btn-primary">Scopri i Risultati →</a>
+  <h1>Quando la montagna si spopola. Una lettura multidimensionale</h1>
+  <p class="hero-subtitle mx-auto">????? Analisi dei dati, spopolamento e futuro dei comuni montani italiani.</p>
+  
 </div>
 
 ---
 
-## In sintesi
-In sintesi
-I piccoli comuni montani italiani si stanno progressivamente spopolando. Questo progetto raccoglie ed elabora un ampio volume di dati eterogenei, provenienti da fonti diverse, applicando tecniche di data science per offrire una lettura su larga scala del fenomeno dello spopolamento nelle aree montane italiane.
+## Un mosaico di fattori 
+Un numero grande di comuni alpini italiani si sta progressivamente spopolando, mentre altri mostrano maggiore resilienza di fronte alle sfide del territorio montano. Lo spopolamento riguarda anche i comuni ad alta pressione turistica. In altri comuni, invece, i trend demografici sono positivi, non sempre associati a flussi turistici intensi. Le dinamiche di spopolamento dipendono da un mosaico di fattori, che il progetto mira ad identificare analizzando, attraverso tecniche di data science e machine learning, un ampio volume di dati eterogenei, relativi al territorio nazionale e a quello locale".
 
-## Montagna in mutamento: quando il dato incontra l'esperienza
-Analizziamo demografia, servizi, rischio idrogeologico e mercato immobiliare delle aree interne, confrontando i risultati con l'esperienza diretta di chi vive la montagna ogni giorno. In questo articolo, il punto di vista di Gregorio Pedrini, guida alpina in Garfagnana, area storico&ndash;geografica in provincia di Lucca.
+## Obiettivi
+Il progetto si propone di analizzare i trend demografici, economici e infrastrutturali che caratterizzano i piccoli comuni montani italiani, per offrire una lettura del fenomeno dello spopolamento basata su dati concreti e verificabili. L'obiettivo è affiancare all'analisi quantitativa una prospettiva multidimensionale, capace di restituire un quadro chiaro delle dinamiche in atto e di supportare una comprensione più consapevole del territorio.
+
+## Una testimonianza 
+Il punto di vista di Gregorio Pedrini, guida alpina in Garfagnana, area storico&ndash;geografica in provincia di Lucca:
 
 <div class="interview-section">
   <h3>Intervista alla guida alpina Gregorio Pedrini</h3>
@@ -32,6 +34,3 @@ Analizziamo demografia, servizi, rischio idrogeologico e mercato immobiliare del
   <p><strong>Chi sono le persone che si rivolgono a te come guida alpina?</strong><br>
   «I miei clienti sono molto diversi tra loro. Ci sono sia residenti che vogliono conoscere meglio le montagne di casa, sia turisti provenienti da altre zone d’Italia e dall’estero. I background sono i più disparati, ma tutti condividono il desiderio di esplorare e vivere la montagna in modo autentico.»</p>
 </div>
-
-## Obiettivi
-Il progetto si propone di analizzare i trend demografici, economici e infrastrutturali che caratterizzano i piccoli comuni montani italiani, per offrire una lettura del fenomeno dello spopolamento basata su dati concreti e verificabili. L'obiettivo è affiancare all'analisi quantitativa una prospettiva multidimensionale, capace di restituire un quadro chiaro delle dinamiche in atto e di supportare una comprensione più consapevole del territorio.
