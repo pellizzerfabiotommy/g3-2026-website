@@ -4,18 +4,18 @@ title: "Home"
 ---
 
 <div class="hero-container text-center">
-  <h1>Quando la montagna si spopola. Una lettura multidimensionale</h1>
-  <p class="hero-subtitle mx-auto">????? Analisi dei dati, spopolamento e futuro dei comuni montani italiani.</p>
+  <h1>Quando la montagna si spopola.</h1>
+  <p class="hero-subtitle mx-auto">Una lettura multidimensionale.</p>
   
 </div>
 
 ---
 
 ## Un mosaico di fattori 
-Un numero grande di comuni alpini italiani si sta progressivamente spopolando, mentre altri mostrano maggiore resilienza di fronte alle sfide del territorio montano. Lo spopolamento riguarda anche i comuni ad alta pressione turistica. In altri comuni, invece, i trend demografici sono positivi, non sempre associati a flussi turistici intensi. Le dinamiche di spopolamento dipendono da un mosaico di fattori, che il progetto mira ad identificare analizzando, attraverso tecniche di data science e machine learning, un ampio volume di dati eterogenei, relativi al territorio nazionale e a quello locale".
+Un numero grande di comuni alpini italiani si sta progressivamente spopolando, mentre altri mostrano maggiore resilienza di fronte alle sfide del territorio montano. Lo spopolamento riguarda anche i comuni ad alta pressione turistica. In altri comuni, invece, i trend demografici sono positivi. 
 
 ## Obiettivi
-Il progetto si propone di analizzare i trend demografici, economici e infrastrutturali che caratterizzano i piccoli comuni montani italiani, per offrire una lettura del fenomeno dello spopolamento basata su dati concreti e verificabili. L'obiettivo è affiancare all'analisi quantitativa una prospettiva multidimensionale, capace di restituire un quadro chiaro delle dinamiche in atto e di supportare una comprensione più consapevole del territorio.
+Le dinamiche di spopolamento dipendono da un mosaico di fattori, che il progetto mira ad identificare analizzando, attraverso tecniche di data science e machine learning, un ampio volume di dati eterogenei, relativi al territorio nazionale e a quello locale.
 
 ## Una testimonianza 
 Il punto di vista di Gregorio Pedrini, guida alpina in Garfagnana, area storico&ndash;geografica in provincia di Lucca:

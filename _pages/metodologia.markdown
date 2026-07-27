@@ -35,25 +35,24 @@ Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, sc
 - **Regressione lineare**, per quantificare la relazione tra variabili demografiche, infrastrutturali ed economiche;
 - **Clustering su serie storiche**, per identificare pattern relativi alle serie storiche 
 
-## Strumenti
+## Strumenti e strategie
 
 * **Linguaggi di programmazione:** Python, SQL
 
 * **Librerie principali:**
-  - `pandas`, `numpy` — manipolazione e analisi dei dati
-  - `scikit-learn` — preprocessing e modelli di machine learning (clustering, classificazione, regressione)
-  - `statsmodels` — modelli statistici e regressioni su serie storiche
-  - `scipy` — analisi di correlazione e calcolo delle distanze tra osservazioni
-  - `matplotlib`, `seaborn`,`Altair` — visualizzazione dei dati e dei risultati
+- `pandas`, `numpy` — manipolazione e analisi dei dati
+- `scikit-learn` — preprocessing e modelli di machine learning (clustering, classificazione, regressione)
+- `statsmodels` — modelli statistici e regressioni su serie storiche
+- `scipy` — analisi di correlazione e calcolo delle distanze tra osservazioni
+- `matplotlib`, `seaborn`,`Altair` — visualizzazione dei dati e dei risultati
 
-* **Algoritmi:**  
-- ** CLUSTERING: Kmeans, Hierarchical Clustering, Dbscan, Hdbscan, DTW 
-- ** CLASSIFICAZIONE: Random Forest 
+* **Algoritmi:**
+- `Kmeans, Hierarchical Clustering, Dbscan, Hdbscan, DTW` (Clustering)
+- `Random Forest` (Classificazione)
 
-# Strategie di preprocessing e feature engineering 
+* **Strategie di preprocessing e feature engineering:* ** 
 
-- normalizzazione codice istat per gestire le serie storiche (comuni che si sono accorpati)
-- creazione di indicatori (es. per riassumere serie storiche), aggregazioni
-- ri-organizzazione dei dati, attraverso pivot, raggruppamenti, per ottenere df a granularità una riga per comune 
-- ... 
-- gestione dei nulli attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti
+- **normalizzazione codice** istat per gestire le serie storiche (comuni che si sono accorpati)
+- **creazione di indicatori** (es. per riassumere serie storiche) 
+- **ri-organizzazione** dati, attraverso pivot, raggruppamenti (es. per ottenere granularità 1 riga 1 comune)
+- **gestione dei nulli** attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti
