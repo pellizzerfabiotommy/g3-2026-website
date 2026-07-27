@@ -90,20 +90,9 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
 
 #### Interpretazione dei cluster
 
+ PARTE LEO
+### Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest 
 
-### Clustering nazionale sui comuni sotto i 15.000 abitanti
-
-
-<div id="feature_imp_ginevra_it"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#feature_imp_ginevra_it', '{{ site.baseurl }}/assets/charts/feature_importance_it.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
 
 
 
@@ -191,30 +180,141 @@ Comprende territori collinari con buona accessibilità e forte crescita demograf
 
 Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
 
+#### Random Forest e Features Importance 
 
-### Clustering  sui comuni Alpini  
 
-<div id="feature_imp_ginevra_montani"></div>
+### 🌲 Modello Random Forest: Configurazione e Prestazioni
+
+Di seguito sono riportate le specifiche tecniche, i parametri di addestramento e i risultati prestazionali ottenuti dal modello di classificazione per la stima dello **Spopolamento**.
+
+---
+
+#### 🛠️ 1. Configurazione e Parametri del Modello
+
+| Ambito | Parametro / Feature | Valore / Descrizione |
+| :--- | :--- | :--- |
+| **Obiettivo** | **Target ($y$)** | `Spopolamento` *(Classificazione binaria: 0 / 1)* |
+| **Data Split** | **Train / Test** | **75%** Training / **25%** Test *(Stratificato su $y$)* |
+| **Algoritmo** | **Estimatore** | `RandomForestClassifier` |
+| | **Numero Alberi (`n_estimators`)** | `500` |
+| | **Gestione Sbilanciamento** | `class_weight="balanced"` |
+| | **Riproducibilità** | `random_state=42` |
+| **Feature Input ($X$)** | **Zona altimetrica** | `zona_altimetrica_media` |
+| | **Tempo al primo hub (min)** | `tempo_primo_hub_15000` |
+| | **Popolazione entro 40 min** | `pop_ray40min` |
+| | **Delta frizione** | `delta_frizione_medio` |
+| | **Rischio frana** | `PAI_POPP3_P4` |
+| | **Strutture ricettive** | `ALL` |
+| | **Prezzo medio (€ / m²)** | `Prezzo_medio` |
+
+---
+
+#### 2. Valutazione e Prestazioni del Modello
+
+* **Accuratezza Globale (Accuracy):** **72%** su un campione totale di test pari a **3.737** comuni/unita.
+
+| Classe / Metrica | Precision | Recall | F1-Score | Supporto (Campioni) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Classe 0** *(Non spopolato)* | `0.75` | `0.74` | **0.74** | 2.056 |
+| **Classe 1** *(Spopolato)* | `0.68` | `0.70` | **0.69** | 1.681 |
+| **Macro Average** | `0.72` | `0.72` | **0.72** | 3.737 |
+| **Weighted Average** | `0.72` | `0.72` | **0.72** | 3.737 |
+
+> **Sintesi delle prestazioni:** Il modello mostra un bilanciamento solido tra le due classi. La classe 0 registra una precisione leggermente più elevata ($75\%$), mentre la classe 1 (spopolamento) mantiene un ottimo richiamo ($70\%$), garantendo la capacità di individuare correttamente la maggior parte dei territori a rischio.
+
+---
+
+*(Di seguito sono riportati i grafici sulla Confusion Matrix e sulla Feature Importance).*### 🌲 Modello Random Forest: Configurazione e Prestazioni
+
+Di seguito sono riportate le specifiche tecniche, i parametri di addestramento e i risultati prestazionali ottenuti dal modello di classificazione per la stima dello **Spopolamento**.
+
+---
+
+#### 🛠️ 1. Configurazione e Parametri del Modello
+
+| Ambito | Parametro / Feature | Valore / Descrizione |
+| :--- | :--- | :--- |
+| **Obiettivo** | **Target ($y$)** | `Spopolamento` *(Classificazione binaria: 0 / 1)* |
+| **Data Split** | **Train / Test** | **75%** Training / **25%** Test *(Stratificato su $y$)* |
+| **Algoritmo** | **Estimatore** | `RandomForestClassifier` |
+| | **Numero Alberi (`n_estimators`)** | `500` |
+| | **Gestione Sbilanciamento** | `class_weight="balanced"` |
+| | **Riproducibilità** | `random_state=42` |
+| **Feature Input ($X$)** | **Zona altimetrica** | `zona_altimetrica_media` |
+| | **Tempo al primo hub (min)** | `tempo_primo_hub_15000` |
+| | **Popolazione entro 40 min** | `pop_ray40min` |
+| | **Delta frizione** | `delta_frizione_medio` |
+| | **Rischio frana** | `PAI_POPP3_P4` |
+| | **Strutture ricettive** | `ALL` |
+| | **Prezzo medio (€ / m²)** | `Prezzo_medio` |
+
+---
+
+#### 2. Valutazione e Prestazioni del Modello
+
+> **🎯 Target:** `spopolamento` &nbsp;|&nbsp; **📊 Accuracy:** `72%` &nbsp;|&nbsp; **💡 Recall (Spopolato):** `70%` &nbsp;|&nbsp; **🎯 F1-Score (Spopolato):** `0.69`
+
+<details>
+<summary><b>🔍 Clicca qui per mostrare/nascondere i dettagli tecnici e il report completo</b></summary>
+
+<br>
+
+#### Configurazione e Iperparametri
+| Ambito | Parametro / Configurazione | Dettaglio / Valore |
+| :--- | :--- | :--- |
+| **Target ($y$)** | Variable Target | `spopolamento` *(Classificazione binaria: 0 / 1)* |
+| **Data Split** | Train / Test Ratio | **75%** Training / **25%** Test *(Stratificato su $y$)* |
+| **Algoritmo** | Estimatore | `RandomForestClassifier` |
+| | Numero Alberi (`n_estimators`) | `500` |
+| | Bilanciamento Classi (`class_weight`) | `"balanced"` |
+| | Riproducibilità (`random_state`) | `42` |
+
+#### Feature di Input ($X$)
+| Nome Variabile Originale | Nome "Human-Readable" | Descrizione / Ambito |
+| :--- | :--- | :--- |
+| `zona_altimetrica_media` | Zona altimetrica | Caratterizzazione altimetrica del territorio |
+| `tempo_primo_hub_15000` | Tempo al primo hub (min) | Accessibilità ai servizi essenziali |
+| `pop_ray40min` | Popolazione entro 40 min | Bacino demografico gravitazionale |
+| `delta_frizione_medio` | Delta frizione | Ritardo infrastrutturale medio della rete viaria |
+| `PAI_POPP3_P4` | Rischio frana | Esposizione al rischio idrogeologico (PAI) |
+| `ALL` | Strutture ricettive | Offerta turistico-ricettiva locale |
+| `Prezzo_medio` | Prezzo medio (€ / m²) | Valore del mercato immobiliare |
+
+#### Report di Classificazione Completo
+| Classe / Metrica | Precision | Recall | F1-Score | Supporto (Campioni) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Classe 0** *(Non spopolato)* | `0.75` | `0.74` | **0.74** | 2.056 |
+| **Classe 1** *(Spopolato)* | `0.68` | `0.70` | **0.69** | 1.681 |
+| **Accuracy** | — | — | **0.72** | 3.737 |
+| **Macro Average** | `0.72` | `0.72` | **0.72** | 3.737 |
+| **Weighted Average** | `0.72` | `0.72` | **0.72** | 3.737 |
+
+</details>
+
+<div id="feature_imp_ginevra_it"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#feature_imp_ginevra_montani', '{{ site.baseurl }}/assets/charts/fi_montano.json')
+  vegaEmbed('#feature_imp_ginevra_it', '{{ site.baseurl }}/assets/charts/feature_importance_it.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
 
 
-<div id="clusterItaliaGinevra"></div>
+
+### Clustering  sui comuni Alpini  
+
+<div id="clusterItaliaGinevra_montani"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#clusterItaliaGinevra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+  vegaEmbed('#clusterItaliaGinevra_montani', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -294,13 +394,74 @@ Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geog
 `Clustering sui comuni Alpini su features (LEO??)` 
 plot feature importance SHAP
 
-### Classificazione 
+#### Random Forest e Features Importance su comuni Alpini 
 
-### random forest nazionale
+### Modello Random Forest
 
-### random forest montano 
- 
----spiegazione  
+> **🎯 Target:** `spopolamento` &nbsp;|&nbsp; **📊 Accuracy:** `76%` &nbsp;|&nbsp; **💡 Recall (Spopolato):** `85%` &nbsp;|&nbsp; **🎯 F1-Score (Spopolato):** `0.80`
+
+<details>
+<summary><b>🔍 Clicca qui per mostrare/nascondere i dettagli tecnici e il report completo</b></summary>
+
+<br>
+
+<div id="feature_imp_ginevra_montani"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#feature_imp_ginevra_montani', '{{ site.baseurl }}/assets/charts/fi_montano.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+#### Configurazione e Iperparametri
+| Ambito | Parametro / Configurazione | Dettaglio / Valore |
+| :--- | :--- | :--- |
+| **Target ($y$)** | Variable Target | `spopolamento` *(Classificazione binaria: 0 / 1)* |
+| **Data Split** | Train / Test Ratio | **75%** Training / **25%** Test *(Stratificato su $y$)* |
+| **Algoritmo** | Estimatore | `RandomForestClassifier` |
+| | Numero Alberi (`n_estimators`) | `500` |
+| | Bilanciamento Classi (`class_weight`) | `"balanced"` |
+| | Riproducibilità (`random_state`) | `42` |
+
+#### Feature di Input ($X$)
+| Nome Variabile Originale | Descrizione / Ambito |
+| :--- | :--- |
+| `zona_altimetrica_media` | Caratterizzazione altimetrica del comune |
+| `tempo_primo_hub_15000` | Accessibilità e minuti di percorrenza verso il polo urbano |
+| `pop_ray40min` | Bacino demografico entro 40 minuti |
+| `delta_temp` | Variazione della temperatura media |
+| `delta_snow` | Variazione della copertura nevosa / precipitazioni |
+| `Prezzo_medio` | Prezzo medio di mercato immobiliare (€ / m²) |
+| `presenza_impianti` | Indicatore presenza di impianti di risalita / sportivi |
+| `pct_vuote` | Percentuale di abitazioni non occupate o vuote |
+
+#### Report di Classificazione Completo
+| Classe / Metrica | Precision | Recall | F1-Score | Supporto (Campioni) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Classe 0** *(Non spopolato)* | `0.76` | `0.64` | **0.69** | 400 |
+| **Classe 1** *(Spopolato)* | `0.76` | `0.85` | **0.80** | 542 |
+| **Accuracy** | — | — | **0.76** | 942 |
+| **Macro Average** | `0.76` | `0.74` | **0.75** | 942 |
+| **Weighted Average** | `0.76` | `0.76` | **0.76** | 942 |
+
+</details>
+
+#### Valutazione e Prestazioni del Modello
+
+* **Accuratezza Globale (Accuracy):** **76%** su un campione totale di test pari a **942** unità.
+
+| Classe / Metrica | Precision | Recall | F1-Score | Supporto (Campioni) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Classe 0** *(Non spopolato)* | `0.76` | `0.64` | **0.69** | 400 |
+| **Classe 1** *(Spopolato)* | `0.76` | `0.85` | **0.80** | 542 |
+| **Macro Average** | `0.76` | `0.74` | **0.75** | 942 |
+| **Weighted Average** | `0.76` | `0.76` | **0.76** | 942 |
+
+> **Sintesi delle prestazioni:** Il modello raggiunge una precisione uniforme del **76%** per entrambe le classi. In particolare, per la **Classe 1** (spopolamento) registra un eccellente richiamo (*Recall*) dell'**85%** con un **F1-Score di 0.80**, dimostrandosi altamente efficace nell'intercettare le aree soggette a spopolamento.
+
 
  
   
