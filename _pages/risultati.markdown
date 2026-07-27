@@ -10,7 +10,7 @@ permalink: /risultati/
 
 L'applicazione di tecniche di data analysis e clustering ha permesso di superare una lettura uniforme dello spopolamento, mostrando come i piccoli comuni italiani — e in particolare quelli montani — non costituiscano un insieme omogeneo, ma un mosaico di territori con traiettorie evolutive differenti, determinate dalla combinazione di accessibilità ai servizi, contesto altimetrico, rischio idrogeologico, dinamiche climatiche, valori immobiliari e andamento demografico di lungo periodo.
 
- ### IL PANORAMA NAZIONALE 
+### IL PANORAMA NAZIONALE 
 
 Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia, accessibilità, rischio idrogeologico e turismo. Rappresentano un momento importante della nostra analisi, in cui abbiamo cercato di rispondere a domande quali:
 - Come è distribuito lo spopolamento nel territorio italiano, e quali differenze si evidenziano tra aree diverse? 
@@ -18,16 +18,13 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 - Dove si evidenziano scostamenti tra delta negativi e altitudine, ad esempio, zone in cui lo spopolamento non correla all'altitudine? E quali fattori indipendenti possiamo rilevare (es. rischio alluvioni, problemi infrastrutturali)?
 - Possiamo identificare aree che, seppur vicine, mostrano fenomeni opposti (es.turismo e crescita; turismo e spopolamento)?
 
-### Nota Metodologica su Indicatori
+#### Nota Metodologica su Indicatori
 
 La seguente tabella riassume la metodologia e il significato degli indicatori utilizzati nelle mappe interattive sottostanti:
-
 | Indicatore / Metrica | Metodologia di Calcolo | Significato Analitico |
 | :--- | :--- | :--- |
-| **Accessibilità Alpha 2**<br>*(raggio 45 min)* | Somma degli *score* assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.<br><br>$$\text{Score} = \frac{\text{Popolazione Destinazione}}{\text{Tempo Effettivo}^2}$$ | Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza. |
+| **Accessibilità Alpha 2**<br>*(raggio 45 min)* | Somma degli *score* assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.<br><br>**Score dest. = Popolazione Destinazione / (Tempo Effettivo)²** | Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza. |
 | **Delta Frizione Medio**<br>*(raggio 80 min)* | Differenza tra il **tempo effettivo di viaggio** (grafo TomTom) e il **tempo ideale** (senza ritardi dovuti a traffico, meteo o chiusura strade). | Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. |
-
-
 
 <div id="mappaSpopolamento"></div>
 
@@ -64,8 +61,6 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
   vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
-
-
 
 ### Clustering (k-means) su serie storica demografica 
 
