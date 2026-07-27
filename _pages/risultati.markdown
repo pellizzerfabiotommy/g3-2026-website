@@ -268,7 +268,7 @@ Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest
 
 #### Interpretazione dei cluster
 
- ##### Gruppo 0. – Piccole località montane periferiche
+##### Gruppo 0. – Piccole località montane periferiche
 
 - **Numero di comuni:** 164
 - **Presenza di impianti:** limitata.
