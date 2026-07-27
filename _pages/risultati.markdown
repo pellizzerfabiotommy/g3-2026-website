@@ -28,7 +28,7 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/mapppa_spopolament.json')
+  vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -42,7 +42,7 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/interattiva_spop.json')
+  vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -58,7 +58,7 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/test_access.json')
+  vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -76,7 +76,19 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 
 *FEATURES & RISULTATI*
 
-plot imp features 
+
+<div id="feature_imp_ginevra_it"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#feature_imp_ginevra_it', '{{ site.baseurl }}/assets/charts/feature_importance_it.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
 
 <div id="clusterItaliaGinevra"></div>
 
@@ -183,16 +195,28 @@ esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne 
 
 *FEATURES & RISULTATI*
 
----importance features PLOT
 
-<div id="clusterMontaniGinevra"></div>
+<div id="feature_imp_ginevra_montani"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#clusterMontaniGinevra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+  vegaEmbed('#feature_imp_ginevra_montani', '{{ site.baseurl }}/assets/charts/fi_montano.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+
+<div id="clusterItaliaGinevra"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#clusterItaliaGinevra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
