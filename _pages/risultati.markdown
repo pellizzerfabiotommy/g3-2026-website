@@ -73,6 +73,8 @@ vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamen
 
 ### Tre Italie: territorio, rischio e mercato immobiliare a confronto
 
+C'è un'Italia che cresce a diciotto minuti da un centro urbano, e un'Italia che ne dista più di trenta. Analizzando trent'anni di dati su tutti i comuni italiani, emerge un pattern chiaro: più un comune è isolato, più rapidamente perde i suoi abitanti. Non è un caso — è una tendenza che si ripete, comune dopo comune, con una regolarità sorprendente.
+
 <style>
   .grafico-scroll-container {
     overflow-x: auto;
@@ -101,6 +103,15 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 #### Interpretazione dei gruppi
 
+<style>
+  .tabla-cluster table th,
+  .tabla-cluster table td {
+    padding: 14px 32px 14px 8px;
+  }
+</style>
+
+<div class="tabla-cluster">
+
 | Indicatore  |  Crescita  |   Declino leve  |   Declino severo |
 |----| ----| ----| ----|
 | Numero di comuni  |  2.209   |   618  |   1.268 |
@@ -112,6 +123,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 | Tempo dall'hub più vicino    | 18,1 min   |   23,9 min  |   30,6 min |
 | Andamento prezzo abitazioni   | +1,51%/anno   |   +0,31%/anno  |   −0,08%/anno |
 
+</div>
 **Crescita** — Migliore connettività, minore esposizione al rischio geologico, situato prevalentemente in zone di pianura. Il mercato immobiliare più dinamico dei tre gruppi.
 
 **Declino leve** — Una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole.
