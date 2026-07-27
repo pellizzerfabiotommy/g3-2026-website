@@ -74,13 +74,13 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 <script>
-  vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+  vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_storico.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
 
 #### Interpretazione dei cluster
-
+-Fiorella
 
 
 ### Clustering nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
