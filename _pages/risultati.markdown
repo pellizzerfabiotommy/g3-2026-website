@@ -49,8 +49,8 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 
 <div class="mapas-comparacion">
   <div id="mappaSpopolamento" class="mapa-container"></div>
-  <div id="mappa_interattiva" class="mapa-container"></div>
   <div id="mappaAccessiblita" class="mapa-container"></div>
+  <div id="mappa_interattiva" class="mapa-container"></div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -61,10 +61,10 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 
-vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
+vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 
-vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
+vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -133,9 +133,7 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
 ---
 
 ### I piccoli comuni d'Italia: profili a confronto
-Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest 
-
-
+Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest
 
 
 <div id="clusterItaliaGinevra"></div>
