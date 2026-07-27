@@ -14,11 +14,11 @@
 html,
 body {
   background-color: var(--page-bg) !important;
-  background-image: linear-gradient(rgba(246, 242, 235, 0.75), rgba(246, 242, 235, 0.75)), url("../images/wallpaper.jpg") !important;
+  background-image: linear-gradient(rgba(246, 242, 235, 0.75), rgba(246, 242, 235, 0.75)), url("../images/wallpapernew.jpg") !important;
   background-position: center top !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  background-attachment: scroll !important;
+  background-attachment: fixed !important;
   color: var(--body-text) !important;
   font-family: "Ubuntu", sans-serif !important;
   line-height: 1.6;
