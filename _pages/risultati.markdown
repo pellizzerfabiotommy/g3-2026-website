@@ -40,7 +40,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 <script>
   vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-</script>
+</script><br>
 
 
 
@@ -53,7 +53,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 <script>
   vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-</script>
+</script><br>
 
 
 
@@ -67,11 +67,11 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 <script>
   vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-</script>
+</script><br>
 
 
 
-### "Tre Italie: territorio, rischio e mercato immobiliare a confronto"
+### Tre Italie: territorio, rischio e mercato immobiliare a confronto
 
 <style>
   .grafico-scroll-container {
