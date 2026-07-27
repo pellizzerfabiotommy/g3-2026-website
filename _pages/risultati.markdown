@@ -30,6 +30,7 @@ Misura l'attrattività e l'accessibilità potenziale di un comune in base alla p
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. 
 
+
 <div id="mappaSpopolamento"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -40,6 +41,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
   vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
+
 
 
 <div id="mappa_interattiva"></div>
@@ -55,6 +57,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 
 
 
+
 <div id="mappaAccessiblita"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -66,18 +69,20 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-### Clustering (k-means) su serie storica demografica 
+
+
+### "Tre Italie: territorio, rischio e mercato immobiliare a confronto"
 
 <style>
   .grafico-scroll-container {
     overflow-x: auto;
     overflow-y: hidden;
     max-width: 100%;
-    padding-bottom: 12px;      /* espacio para que la barra de scroll no quede pegada al gráfico */
-    border: 1px solid #e0dcd0; /* opcional: un borde sutil que delimite el área con scroll, coherente con tu paleta */
+    padding-bottom: 12px;      
+    border: 1px solid rgba(0, 0, 0, 0.06); 
   }
   .grafico-scroll-container > div {
-    display: inline-block;     /* evita que el gráfico se comprima al ancho del contenedor padre */
+    display: inline-block;     
   }
 </style>
 
@@ -176,7 +181,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 - **Crescita dal 1992:** stabile (-1%)
 - **Delta frizione:** 3.1 (rete stradale efficiente)
 
-È un cluster caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
+È un gruppo caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
  
 `Gruppo 1. Aree montane turistiche consolidate`
 - **Numero di comuni:** 144
@@ -214,7 +219,7 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 - **Crescita dal 1992:** +29%
 - **Delta frizione:** 8.3
 
-È il cluster con la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
+Questo gruppo ha la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
 
  
 `Gruppo 5. Aree in espansione`
