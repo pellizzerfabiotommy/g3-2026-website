@@ -18,7 +18,7 @@
 # {{ site.title }}, {{ site.email }}, ecc. Puoi creare variabili personalizzate:
 # saranno accessibili nei template tramite {{ site.myvariable }}.
 
-title: "Oltre la Montagna - Big Data Project"
+title: "Quando la montagna si spopola - Big Data Project"
 subtitle: "Progetto di Data Science"
 description: >- # ignora i ritorni a capo fino a "baseurl:"
   Un progetto di data science che analizza lo spopolamento dei piccoli comuni
@@ -29,7 +29,7 @@ description: >- # ignora i ritorni a capo fino a "baseurl:"
 # Riportare il github del gruppo di progetto e quello del sito web (se differente).
 # Tali informazioni appariranno nel Footer del sito.
 github_repo:
-  - name: "Repository del progetto Oltre la Montagna"
+  - name: "Repository del progetto Quando la montagna si spopola"
     url: "https://github.com/pellizzerfabiotommy/g3-2026-website"
 
 markdown: kramdown
@@ -45,7 +45,7 @@ url: "" # se pubblichi su GitHub Pages, inserisci qui "https://TUO_USERNAME.gith
 navbar:
   style :  dual # non modificarlo: imposta lo stile della navbar.
   brand: # brand della navbar, mostrato a sinistra.
-    title :  "Oltre la montagna"
+    title :  "Quando la montagna si spopola"
     img: "/assets/images/Logo_masthead.png" # non modificare
     url: /
   nav:
