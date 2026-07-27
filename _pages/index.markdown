@@ -15,7 +15,7 @@ title: "Home"
 Un numero crescente di comuni alpini italiani si sta progressivamente spopolando, mentre altri mostrano una sorprendente resilienza di fronte alle sfide del territorio montano. Il fenomeno non risparmia nemmeno le aree ad alta pressione turistica, eppure in altri comuni i trend demografici restano positivi. Dietro queste traiettorie così diverse si nasconde una rete complessa di cause, ambientali, sociali ed economiche, che si intrecciano in modo differente da territorio a territorio.
 
 ## Obiettivi
-È proprio questa complessità che il progetto si propone di analizzare. Attraverso tecniche di data science e machine learning, indaghiamo un ampio volume di dati eterogenei — relativi tanto al contesto nazionale quanto alle specificità locali — per identificare i fattori che determinano lo spopolamento montano e distinguere i territori resilienti da quelli più vulnerabili, mettendo in luce le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
+È proprio questa complessità che il progetto si propone di analizzare. Attraverso tecniche di data science e machine learning, abbiamo indagato un ampio volume di dati eterogenei — relativi tanto al contesto nazionale quanto alle specificità locali — per identificare i fattori che determinano lo spopolamento montano e distinguere i territori resilienti da quelli più vulnerabili, mettendo in luce le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
 
  
 

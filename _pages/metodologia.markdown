@@ -55,4 +55,4 @@ Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, sc
 - normalizzazione codice istat per gestire le serie storiche (comuni che si sono accorpati)
 - creazione di indicatori (es. per riassumere serie storiche) 
 - ri-organizzazione dati, attraverso pivot, raggruppamenti (es. per ottenere granularità 1 riga 1 comune)
-- gestione dei nulli attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti
+- gestione dei nulli attraverso imputazione (es. la serie storica flussi turistici presentava nulli durante il covid), dati mancanti
