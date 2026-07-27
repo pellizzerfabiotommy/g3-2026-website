@@ -103,14 +103,6 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 #### Interpretazione dei gruppi
 
-<style>
-  .tabla-cluster table th,
-  .tabla-cluster table td {
-    padding: 14px 32px 14px 8px;
-  }
-</style>
-
-<div class="tabla-cluster">
 
 | Indicatore  |  Crescita  |   Declino leve  |   Declino severo |
 |----| ----| ----| ----|
@@ -123,7 +115,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 | Tempo dall'hub più vicino    | 18,1 min   |   23,9 min  |   30,6 min |
 | Andamento prezzo abitazioni   | +1,51%/anno   |   +0,31%/anno  |   −0,08%/anno |
 
-</div>
+
 **Crescita** — Migliore connettività, minore esposizione al rischio geologico, situato prevalentemente in zone di pianura. Il mercato immobiliare più dinamico dei tre gruppi.
 
 **Declino leve** — Una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole.
@@ -352,11 +344,12 @@ Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobil
 
 Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geografico, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva e valori immobiliari elevati.
 
+---
 
 `Clustering sui comuni Alpini su features (LEO??)` 
 plot feature importance SHAP
 
-
+---
 
 #### Cosa spiega lo spopolamento nei comuni alpini?
 Random Forest e Features Importance su comuni Alpini (variabile target: spopolamento SI/NO)
