@@ -50,7 +50,7 @@ Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, sc
 - `Kmeans, Hierarchical Clustering, Dbscan, Hdbscan, DTW` (Clustering)
 - `Random Forest` (Classificazione)
 
-* **Strategie di preprocessing e feature engineering:* ** 
+* **Strategie di preprocessing e feature engineering:**
 
 - **normalizzazione codice** istat per gestire le serie storiche (comuni che si sono accorpati)
 - **creazione di indicatori** (es. per riassumere serie storiche) 
