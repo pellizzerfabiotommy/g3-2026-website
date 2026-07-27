@@ -30,44 +30,43 @@ Misura l'attrattività e l'accessibilità potenziale di un comune in base alla p
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. 
 
+---
+<style>
+  .mapas-comparacion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 24px;
+    align-items: start;
+    margin: 20px 0;
+  }
+  .mapa-container {
+    width: 100%;
+    max-width: 700px;
+    max-height: 80vh;      /* limita la altura a un 80% de lo que se ve en pantalla */
+    overflow-y: auto;      /* si el contenido (mapa + sliders) es más alto, aparece scroll SOLO ahí, no en toda la página */
+  }
+</style>
 
-<div id="mappaSpopolamento"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script><br>
-
-
-
-<div id="mappa_interattiva"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script><br>
-
-
-
-
-<div id="mappaAccessiblita"></div>
+<div class="mapas-comparacion">
+  <div id="mappaSpopolamento" class="mapa-container"></div>
+  <div id="mappa_interattiva" class="mapa-container"></div>
+  <div id="mappaAccessiblita" class="mapa-container"></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
+vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-</script><br>
+
+vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+
+vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 ---
 
@@ -99,60 +98,18 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 </script>
 
 
-
-#### Interpretazione dei gruppi
-##### Gruppo 1. Crescita
-
-- **Numero di comuni:** 2.209
-- **Rischio frana (% area media):** 5,73%
-- **Rischio alluvione (% area media):** 6,27%
-- **Comuni montani:** 34,0%
-- **Altitudine media:** 398,0 m
-- **Indice di accessibilità (media):** 45.560
-- **Tempo dall'hub più vicino:** 18,1 min
-- **Andamento prezzo abitazioni:** +1,51%/anno
-
-È un gruppo di comuni caratterizzato da migliore connettività, minore esposizione al rischio geologico e situato prevalentemente in zone di pianura. Presenta il mercato immobiliare più dinamico dei tre gruppi, con la crescita di prezzo più marcata.
-
-##### Gruppo 2. Declino leve
-
-- **Numero di comuni:** 618
-- **Rischio frana (% area media):** 8,86%
-- **Rischio alluvione (% area media):** 6,54%
-- **Comuni montani:** 46,0%
-- **Altitudine media:** 465,5 m
-- **Indice di accessibilità (media):** 24.775
-- **Tempo dall'hub più vicino:** 23,9 min
-- **Andamento prezzo abitazioni:** +0,31%/anno
-
-È un gruppo di comuni in una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo per rischio, altitudine e accessibilità. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole rispetto al gruppo in crescita.
-
-##### Gruppo 3. Declino severo
-
-- **Numero di comuni:** 1.268
-- **Rischio frana (% area media):** 9,79%
-- **Rischio alluvione (% area media):** 5,11%
-- **Comuni montani:** 59,6%
-- **Altitudine media:** 640,2 m
-- **Indice di accessibilità (media):** 17.537
-- **Tempo dall'hub più vicino:** 30,6 min
-- **Andamento prezzo abitazioni:** −0,08%/anno
-
-È il gruppo di comuni con l'altitudine media maggiore, la più alta proporzione di territorio montano, il rischio frana più elevato e la peggiore accessibilità dei tre gruppi. È l'unico gruppo con il mercato immobiliare stagnante, coerente con un processo di spopolamento strutturale e prolungato in zone di isolamento territoriale.
-
----
 #### Interpretazione dei gruppi
 
-| Indicatore | Crescita | Declino leve | Declino severo |
-|---|---|---|---|
-| Numero di comuni | 2.209 | 618 | 1.268 |
-| Rischio frana (% area media) | 5,73% | 8,86% | 9,79% |
-| Rischio alluvione (% area media) | 6,27% | 6,54% | 5,11% |
-| Comuni montani | 34,0% | 46,0% | 59,6% |
-| Altitudine media | 398,0 m | 465,5 m | 640,2 m |
-| Indice di accessibilità (media) | 45.560 | 24.775 | 17.537 |
-| Tempo dall'hub più vicino | 18,1 min | 23,9 min | 30,6 min |
-| Andamento prezzo abitazioni | +1,51%/anno | +0,31%/anno | −0,08%/anno |
+| Indicatore  | Crescita  |  Declino leve  |  Declino severo |
+|----|----|----|----|
+| Numero di comuni  | 2.209  |  618  |  1.268 |
+| Rischio frana (% area media)  | 5,73%  |  8,86%  |  9,79% |
+| Rischio alluvione (% area media)  | 6,27%  |  6,54%  |  5,11% |
+| Comuni montani  | 34,0%  |  46,0%  |  59,6% |
+| Altitudine media  | 398,0 m  |  465,5 m  |  640,2 m |
+| Indice di accessibilità (media)  | 45.560  |  24.775  |  17.537 |
+| Tempo dall'hub più vicino  | 18,1 min  |  23,9 min  |  30,6 min |
+| Andamento prezzo abitazioni  | +1,51%/anno  |  +0,31%/anno  |  −0,08%/anno |
 
 **Crescita** — Migliore connettività, minore esposizione al rischio geologico, situato prevalentemente in zone di pianura. Il mercato immobiliare più dinamico dei tre gruppi.
 
@@ -387,6 +344,8 @@ Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geog
 `Clustering sui comuni Alpini su features (LEO??)` 
 plot feature importance SHAP
 
+
+
 #### Cosa spiega lo spopolamento nei comuni alpini?
 Random Forest e Features Importance su comuni Alpini (variabile target: spopolamento SI/NO)
 
@@ -407,6 +366,7 @@ Random Forest e Features Importance su comuni Alpini (variabile target: spopolam
 **Precision:** classe 0 - 76%; classe 1 - 76%<br>
 **Recall:** classe 0 - 64%; classe 1 - 85%<br>
 
+---
 
 ## I RISULTATI IN SINTESI 
 
