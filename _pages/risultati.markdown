@@ -62,21 +62,21 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
+
+
 2. **Clustering su serie storica demografica**
 
-
+   PARTE FIORELLA 
 
 3. **Clustering nazionale**, su tutti i comuni italiani, utilizzando dati del triennio 2023-2025
 
-
+   PARTE LEO 
 
 4. **Clustering sui comuni italiani sotto i 15.000 abitanti**
 
 *FEATURES & RISULTATI*
 
 plot imp features 
-
-*CLUSTER INDIVIDUATI*
 
 <div id="clusterItaliaGinevra"></div>
 
@@ -89,15 +89,102 @@ plot imp features
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
+## Interpretazione dei cluster
+
+### Cluster 0 – Aree collinari ben accessibili e mercato turistico medio
+- **Altitudine media:** collinare (1.58)
+- **Tempo al primo hub (>15.000 ab.):** 18 min
+- **Popolazione raggiungibile in 40 minuti:** ~469.000 abitanti
+- **Strutture ricettive:** 11
+- **Prezzo medio:** 739 €
+- **Crescita dal 1992:** stabile (-1%)
+- **Delta frizione:** 3.1 (rete stradale efficiente)
+
+È un cluster caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
+ 
+### Cluster 1 – Aree montane turistiche consolidate
+- **Altitudine media:** montana (2.83)
+- **Tempo al primo hub:** 37 min
+- **Popolazione raggiungibile:** ~206.000 abitanti
+- **Strutture ricettive:** 163
+- **Prezzo medio:** 2.873 €
+- **Crescita dal 1992:** stabile
+- **Delta frizione:** 11.8 (viabilità difficoltosa)
+
+Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
  
 
+### Cluster 2 – Aree montane marginali
+- **Altitudine media:** montana (2.79)
+- **Tempo al primo hub:** 34 min
+- **Popolazione raggiungibile:** ~147.000 abitanti
+- **Strutture ricettive:** 9
+- **Prezzo medio:** 631 €
+- **Crescita dal 1992:** -23%
+- **Delta frizione:** 6.6
 
-5. **Clustering sui comuni Alpini su features.... ** 
+Sono territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.
+
+ 
+
+### Cluster 3 – Poli urbani
+- **Altitudine media:** pianura (1.00)
+- **Tempo al primo hub:** 31 min
+- **Popolazione raggiungibile:** ~222.000 abitanti
+- **Strutture ricettive:** 4.649
+- **Prezzo medio:** 2.218 €
+- **Crescita dal 1992:** +10%
+- **Delta frizione:** 2.7 (rete molto efficiente)
+
+Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentrazione di strutture ricettive, prezzi immobiliari elevati e buona qualità della rete stradale. La crescita demografica positiva conferma la loro attrattività.
+
+ 
+
+### Cluster 4 – Aree metropolitane accessibili
+- **Altitudine media:** pianura (1.26)
+- **Tempo al primo hub:** 12 min
+- **Popolazione raggiungibile:** ~1,79 milioni di abitanti
+- **Strutture ricettive:** 6
+- **Prezzo medio:** 1.191 €
+- **Crescita dal 1992:** +29%
+- **Delta frizione:** 8.3
+
+È il cluster con la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
+
+ 
+### Cluster 5 – Aree collinari in espansione
+- **Altitudine media:** collina (2.02)
+- **Tempo al primo hub:** 18 min
+- **Popolazione raggiungibile:** ~520.000 abitanti
+- **Strutture ricettive:** 18
+- **Prezzo medio:** 1.214 €
+- **Crescita dal 1992:** +32%
+- **Delta frizione:** 8.4
+
+Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
+
+ 
+
+### Cluster 6 – Aree montane isolate
+- **Altitudine media:** montana (3.48)
+- **Tempo al primo hub:** 48 min
+- **Popolazione raggiungibile:** ~82.000 abitanti
+- **Strutture ricettive:** 17
+- **Prezzo medio:** 858 €
+- **Crescita dal 1992:** -16%
+- **Delta frizione:** 14.8 (rete stradale più penalizzante)
+
+Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
+
+
+
+5. **Clustering sui comuni Alpini** 
 esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
 
 *FEATURES & RISULTATI*
 
-*CLUSTER INDIVIDUATI (MONTANI)*
+---importance features PLOT
+
 <div id="clusterMontaniGinevra"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -108,6 +195,87 @@ esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne 
   vegaEmbed('#clusterMontaniGinevra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
+
+## Interpretazione dei cluster
+#%% md
+## Interpretazione dei cluster
+
+### Cluster 0 – Piccole località montane periferiche
+
+- Presenza di impianti limitata.
+- Accessibilità ridotta (41 min dal primo hub e meno di 100 mila abitanti raggiungibili).
+- Poche strutture ricettive (14 in media).
+- Prezzi immobiliari contenuti.
+- Marcato calo demografico (-17% dal 1992).
+- Elevata quota di abitazioni non occupate.
+
+Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica limitata e un progressivo indebolimento demografico.
+
+---
+
+### Cluster 1 – Montagna accessibile e residenziale
+
+- Buona accessibilità (21 min dal primo hub).
+- Bacino potenziale di quasi 500 mila abitanti.
+- Crescita demografica positiva (+16%).
+- Prezzi immobiliari medio-alti.
+- Bassa quota di abitazioni vuote.
+- Presenza di impianti contenuta.
+
+Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia residenziale sia turistica, beneficiando della vicinanza ai principali centri urbani.
+
+---
+
+### Cluster 2 – Montagna isolata con criticità infrastrutturali
+
+- Accessibilità molto bassa (53 min dal primo hub).
+- Peggiore qualità della rete stradale (delta frizione più elevato).
+- Bacino di popolazione ridotto.
+- Turismo limitato.
+- Prezzi immobiliari relativamente bassi.
+- Calo demografico moderato.
+
+Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrastrutturali e dalla distanza dai principali poli.
+
+---
+
+### Cluster 3 – Località montane in trasformazione
+
+- Accessibilità intermedia.
+- Ridotta presenza di strutture ricettive.
+- Minore quota altimetrica rispetto agli altri cluster.
+- Maggiore riduzione dell'innevamento.
+- Prezzi immobiliari contenuti.
+- Dinamica demografica sostanzialmente stabile.
+
+Rappresentano località montane meno elevate, nelle quali la diminuzione dell'innevamento potrebbe incidere maggiormente sulla competitività del turismo invernale.
+
+---
+
+### Cluster 4 – Destinazioni sciistiche di pregio
+
+- Elevata presenza di impianti.
+- Offerta ricettiva molto sviluppata (75 strutture in media).
+- Prezzi immobiliari più elevati.
+- Quota altimetrica molto elevata.
+- Perdite di innevamento relativamente contenute.
+- Accessibilità limitata ma compensata dall'attrattività turistica.
+
+Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobiliare di valore elevato e da un'offerta turistica consolidata.
+
+---
+
+### Cluster 5 – Grandi poli dello sci
+
+- Massima presenza di impianti.
+- Oltre 440 strutture ricettive in media.
+- Comuni molto isolati.
+- Bacino di popolazione ridotto.
+- Prezzi immobiliari molto elevati.
+- Condizioni nivologiche relativamente favorevoli.
+- Elevata incidenza di seconde case.
+
+Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geografico, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva e valori immobiliari elevati.
 
 
 6. **Clustering sui comuni Alpini su features bla bla** 
@@ -122,7 +290,7 @@ plot feature importance SHAP
  
   
 
-## INTERPRETAZIONE DEI RISULTATI 
+## INTERPRETAZIONE GENERALE DEI RISULTATI 
 
 I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non solo non basta a proteggere la sopravvivenza demografica della montagna, ma può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
 Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili posso presentare alta vocazione turistica (l'interesse verso alcuni luoghi fa superare alcune barriere, e forse è tipco di certe destinazioni l'essere isolate).
