@@ -21,13 +21,13 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 #### Nota Metodologica su Indicatori
 
 
-**Accessibilità Alpha 2 (raggio 45 min)**:
+**Accessibilità Alpha 2**(raggio 45 min):
 Somma degli score di popolazione assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.
-(**Score dest. = Popolazione Destinazione / Tempo Effettivo²**) 
+(Score dest. = Popolazione Destinazione / Tempo Effettivo²) 
 Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza.  
 
-**Delta Frizione Medio(raggio 80 min)**:
-Differenza tra il **tempo effettivo di viaggio** (grafo TomTom) e il **tempo ideale** (senza ritardi dovuti a traffico, meteo o chiusura strade). 
+**Delta Frizione Medio**(raggio 80 min):
+Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. 
 
 <div id="mappaSpopolamento"></div>
@@ -68,18 +68,73 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 
 ### Clustering (k-means) su serie storica demografica 
 
-<div id="descriptivo_storico"></div>
+<style>
+  .grafico-scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 12px;      /* espacio para que la barra de scroll no quede pegada al gráfico */
+    border: 1px solid #e0dcd0; /* opcional: un borde sutil que delimite el área con scroll, coherente con tu paleta */
+  }
+  .grafico-scroll-container > div {
+    display: inline-block;     /* evita que el gráfico se comprima al ancho del contenedor padre */
+  }
+</style>
+
+<div class="grafico-scroll-container">
+  <div id="descriptivo_storico"></div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 <script>
-  vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_storico.json')
+vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_storico.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
 
+
 #### Interpretazione dei cluster
--Fiorella
+## Gruppo 1. Crescita
+
+- **Numero di comuni:** 2.209
+- **Rischio frana (% area media):** 5,73%
+- **Rischio alluvione (% area media):** 6,27%
+- **Comuni montani:** 34,0%
+- **Altitudine media:** 398,0 m
+- **Indice di accessibilità (media):** 45.560
+- **Tempo dall'hub più vicino:** 18,1 min
+- **Andamento prezzo abitazioni:** +1,51%/anno
+
+È un gruppo di comuni caratterizzato da migliore connettività, minore esposizione al rischio geologico e situato prevalentemente in zone di pianura. Presenta il mercato immobiliare più dinamico dei tre gruppi, con la crescita di prezzo più marcata.
+
+## Gruppo 2. Declino leve
+
+- **Numero di comuni:** 618
+- **Rischio frana (% area media):** 8,86%
+- **Rischio alluvione (% area media):** 6,54%
+- **Comuni montani:** 46,0%
+- **Altitudine media:** 465,5 m
+- **Indice di accessibilità (media):** 24.775
+- **Tempo dall'hub più vicino:** 23,9 min
+- **Andamento prezzo abitazioni:** +0,31%/anno
+
+È un gruppo di comuni in una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo per rischio, altitudine e accessibilità. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole rispetto al gruppo in crescita.
+
+## Gruppo 3. Declino severo
+
+- **Numero di comuni:** 1.268
+- **Rischio frana (% area media):** 9,79%
+- **Rischio alluvione (% area media):** 5,11%
+- **Comuni montani:** 59,6%
+- **Altitudine media:** 640,2 m
+- **Indice di accessibilità (media):** 17.537
+- **Tempo dall'hub più vicino:** 30,6 min
+- **Andamento prezzo abitazioni:** −0,08%/anno
+
+È il gruppo di comuni con l'altitudine media maggiore, la più alta proporzione di territorio montano, il rischio frana più elevato e la peggiore accessibilità dei tre gruppi. È l'unico gruppo con il mercato immobiliare stagnante, coerente con un processo di spopolamento strutturale e prolungato in zone di isolamento territoriale.
+
 
 
 ### Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
@@ -200,7 +255,9 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 #### Valutazione e Prestazioni del Modello
 
 **Accuratezza Globale (Accuracy):** 72%
+
 **Precision:** classe 0 - 75%; classe 1 - 68%
+
 **Recall:** classe 0 - 74%; classe 1 - 70% 
 
 
@@ -306,6 +363,14 @@ plot feature importance SHAP
   vegaEmbed('#feature_imp_ginevra_montani', '{{ site.baseurl }}/assets/charts/fi_montano.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
+
+#### Valutazione e Prestazioni del Modello
+
+**Accuratezza Globale (Accuracy):** 76%
+
+**Precision:** classe 0 - 76%; classe 1 - 76%
+
+**Recall:** classe 0 - 64%; classe 1 - 85% 
 
 
 ## I RISULTATI IN SINTESI 

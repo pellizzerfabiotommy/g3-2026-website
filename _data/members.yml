@@ -28,21 +28,21 @@
   role: tutor
   home: true
 
-- name: Sofia Marchesin
+- name: Claudia Ginevra Biondi
   github: https://github.com/somarche
   role: student
-- name: Leonardo Vatrano
+- name: Nicoletta Delle Fratte
   github: https://kdd.isti.cnr.it/people/student-2
   role: student
-- name: Fabio Tommy Pellizzer
+- name: Sofia Marchesin
   github: https://kdd.isti.cnr.it/people/student-3
   role: student
-- name: Frolain Fiorella Pedroza Candelo
-  github: https://kdd.isti.cnr.it/people/student-4
+- name:  Frolain Fiorella Pedroza Candelo
+  github: https://github.com/fpedrozacandelo
   role: student
-- name: Claudia Ginevra Biondi
+- name:  Fabio Tommy Pellizzer 
   github: https://kdd.isti.cnr.it/people/student-5
   role: student
-- name: Nicoletta Delle Fratte
+- name: Leonardo Vatrano
   github: https://github.com/ndelfra
   role: student
