@@ -69,7 +69,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
     .catch(err => console.error('Errore rendering grafico:', err));
 </script><br>
 
-
+---
 
 ### Tre Italie: territorio, rischio e mercato immobiliare a confronto
 
@@ -140,7 +140,27 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È il gruppo di comuni con l'altitudine media maggiore, la più alta proporzione di territorio montano, il rischio frana più elevato e la peggiore accessibilità dei tre gruppi. È l'unico gruppo con il mercato immobiliare stagnante, coerente con un processo di spopolamento strutturale e prolungato in zone di isolamento territoriale.
 
+---
+#### Interpretazione dei gruppi
 
+| Indicatore | Crescita | Declino leve | Declino severo |
+|---|---|---|---|
+| Numero di comuni | 2.209 | 618 | 1.268 |
+| Rischio frana (% area media) | 5,73% | 8,86% | 9,79% |
+| Rischio alluvione (% area media) | 6,27% | 6,54% | 5,11% |
+| Comuni montani | 34,0% | 46,0% | 59,6% |
+| Altitudine media | 398,0 m | 465,5 m | 640,2 m |
+| Indice di accessibilità (media) | 45.560 | 24.775 | 17.537 |
+| Tempo dall'hub più vicino | 18,1 min | 23,9 min | 30,6 min |
+| Andamento prezzo abitazioni | +1,51%/anno | +0,31%/anno | −0,08%/anno |
+
+**Crescita** — Migliore connettività, minore esposizione al rischio geologico, situato prevalentemente in zone di pianura. Il mercato immobiliare più dinamico dei tre gruppi.
+
+**Declino leve** — Una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole.
+
+**Declino severo** — L'altitudine media maggiore, la più alta proporzione di territorio montano, il rischio frana più elevato e la peggiore accessibilità. L'unico gruppo con il mercato immobiliare stagnante, coerente con un processo di spopolamento strutturale.
+
+---
 
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
@@ -153,6 +173,7 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
  PARTE LEO 
 
 
+---
 
 ### I piccoli comuni d'Italia: profili a confronto
 Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest 
@@ -249,6 +270,7 @@ Comprende territori collinari con buona accessibilità e forte crescita demograf
 
 Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
 
+---
 #### Cosa spiega lo spopolamento nei piccoli comuni?
 Random Forest e Features Importance (variabile target: spopolamento SI/NO)
  
@@ -271,7 +293,7 @@ Random Forest e Features Importance (variabile target: spopolamento SI/NO)
 **Precision:** classe 0 - 75%; classe 1 - 68%<br>
 **Recall:** classe 0 - 74%; classe 1 - 70%<br>
 
-
+---
 
 ### I comuni alpini: profili a confronto
 Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
@@ -301,7 +323,7 @@ Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest
 
 Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica limitata e un progressivo indebolimento demografico.
 
----
+
 ##### Gruppo 1. – Montagna accessibile e residenziale
 
 - **Numero di comuni:** 94
