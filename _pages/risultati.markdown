@@ -273,7 +273,7 @@ Random Forest e Features Importance (variabile target: spopolamento SI/NO)
 
 
 
-### I comuni alpini: profili a confronto?
+### I comuni alpini: profili a confronto
 Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
 
 <div id="clustering_montani_ginivra"></div>
