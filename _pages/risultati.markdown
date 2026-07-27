@@ -66,7 +66,8 @@ vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.j
 
 vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-</script>
+</script>  
+
 
 ---
 
@@ -100,16 +101,16 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 #### Interpretazione dei gruppi
 
-| Indicatore  | Crescita  |  Declino leve  |  Declino severo |
-|----|----|----|----|
-| Numero di comuni  | 2.209  |  618  |  1.268 |
-| Rischio frana (% area media)  | 5,73%  |  8,86%  |  9,79% |
-| Rischio alluvione (% area media)  | 6,27%  |  6,54%  |  5,11% |
-| Comuni montani  | 34,0%  |  46,0%  |  59,6% |
-| Altitudine media  | 398,0 m  |  465,5 m  |  640,2 m |
-| Indice di accessibilità (media)  | 45.560  |  24.775  |  17.537 |
-| Tempo dall'hub più vicino  | 18,1 min  |  23,9 min  |  30,6 min |
-| Andamento prezzo abitazioni  | +1,51%/anno  |  +0,31%/anno  |  −0,08%/anno |
+| Indicatore  |  Crescita  |   Declino leve  |   Declino severo |
+|----| ----| ----| ----|
+| Numero di comuni  |  2.209   |   618  |   1.268 |
+| Rischio frana (% area media)   |  5,73%  |   8,86%  |   9,79% |
+| Rischio alluvione (% area media)   |  6,27%  |   6,54%  |   5,11% |
+| Comuni montani   |  34,0%  |  46,0%   |  59,6% |
+| Altitudine media   |  398,0 m  |   465,5 m   |   640,2 m |
+| Indice di accessibilità (media)   | 45.560   |   24.775  |   17.537 |
+| Tempo dall'hub più vicino    | 18,1 min   |   23,9 min  |   30,6 min |
+| Andamento prezzo abitazioni   | +1,51%/anno   |   +0,31%/anno  |   −0,08%/anno |
 
 **Crescita** — Migliore connettività, minore esposizione al rischio geologico, situato prevalentemente in zone di pianura. Il mercato immobiliare più dinamico dei tre gruppi.
 
@@ -130,7 +131,7 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
  PARTE LEO 
 
 
----
+---  
 
 ### I piccoli comuni d'Italia: profili a confronto
 Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest
@@ -147,7 +148,8 @@ Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-#### Interpretazione dei cluster
+#### Interpretazione dei cluster  
+
 
 ##### Gruppo 0. Aree ben accessibili e mercato turistico medio
 - **Numero di comuni:** 1653
