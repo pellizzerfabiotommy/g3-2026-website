@@ -21,12 +21,12 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 #### Nota Metodologica su Indicatori
 
 
-**Accessibilità Alpha 2**(raggio 45 min):
+**Accessibilità Alpha 2** (raggio 45 min):
 Somma degli score di popolazione assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.
 (Score dest. = Popolazione Destinazione / Tempo Effettivo²) 
 Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza.  
 
-**Delta Frizione Medio**(raggio 80 min):
+**Delta Frizione Medio** (raggio 80 min):
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. 
 
@@ -101,7 +101,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 
 #### Interpretazione dei gruppi
-`Gruppo 1. Crescita `
+##### Gruppo 1. Crescita
 
 - **Numero di comuni:** 2.209
 - **Rischio frana (% area media):** 5,73%
@@ -114,7 +114,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un gruppo di comuni caratterizzato da migliore connettività, minore esposizione al rischio geologico e situato prevalentemente in zone di pianura. Presenta il mercato immobiliare più dinamico dei tre gruppi, con la crescita di prezzo più marcata.
 
-`Gruppo 2. Declino leve`
+##### Gruppo 2. Declino leve
 
 - **Numero di comuni:** 618
 - **Rischio frana (% area media):** 8,86%
@@ -127,7 +127,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un gruppo di comuni in una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo per rischio, altitudine e accessibilità. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole rispetto al gruppo in crescita.
 
-`Gruppo 3. Declino severo`
+##### Gruppo 3. Declino severo
 
 - **Numero di comuni:** 1.268
 - **Rischio frana (% area media):** 9,79%
@@ -142,7 +142,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 
 
-### Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
+### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
+Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
 
    PARTE LEO 
 
@@ -153,7 +154,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 
 
-### Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest 
+### I piccoli comuni d'Italia: profili a confronto
+Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest 
 
 
 
@@ -171,7 +173,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 #### Interpretazione dei cluster
 
-`Gruppo 0. Aree ben accessibili e mercato turistico medio` 
+##### Gruppo 0. Aree ben accessibili e mercato turistico medio
 - **Numero di comuni:** 1653
 - **Altitudine media:** altitudine media (1.58)
 - **Tempo al primo hub (>15.000 ab.):** 18 min
@@ -183,7 +185,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un gruppo caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
  
-`Gruppo 1. Aree montane turistiche consolidate`
+##### Gruppo 1. Aree montane turistiche consolidate
 - **Numero di comuni:** 144
 - **Altitudine media:** altitudine media (2.83)
 - **Tempo al primo hub:** 37 min
@@ -196,7 +198,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
  
 
-`Gruppo 2. Aree marginali`
+##### Gruppo 2. Aree marginali
 - **Numero di comuni:** 1374
 - **Altitudine media:** montana (2.79)
 - **Tempo al primo hub:** 34 min
@@ -209,7 +211,7 @@ Comprende località montane con forte vocazione turistica. Pur essendo relativam
 Sono territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.
 
  
-`Gruppo 4. Aree metropolitane accessibili`
+##### Gruppo 4. Aree metropolitane accessibili
 - **Numero di comuni:** 524
 - **Altitudine media:** pianura (1.26)
 - **Tempo al primo hub:** 12 min
@@ -222,7 +224,7 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 Questo gruppo ha la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
 
  
-`Gruppo 5. Aree in espansione`
+##### Gruppo 5. Aree in espansione
 - **Numero di comuni:** 891
 - **Altitudine media:** collina (2.02)
 - **Tempo al primo hub:** 18 min
@@ -235,7 +237,7 @@ Questo gruppo ha la maggiore accessibilità potenziale grazie alla vicinanza ai 
 Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
 
 
-`Gruppo 6. Aree montane isolate`
+##### Gruppo 6. Aree montane isolate
 - **Numero di comuni:** 607
 - **Altitudine media:** montana (3.48)
 - **Tempo al primo hub:** 48 min
@@ -247,7 +249,8 @@ Comprende territori collinari con buona accessibilità e forte crescita demograf
 
 Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
 
-#### Random Forest e Features Importance (variabile target: spopolamento SI/NO)
+#### Cosa spiega lo spopolamento nei piccoli comuni?
+Random Forest e Features Importance (variabile target: spopolamento SI/NO)
  
 
 <div id="feature_imp_ginevra_it"></div>
@@ -270,7 +273,8 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 
 
 
-### Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
+### I comuni alpini: profili a confronto?
+Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
 
 <div id="clustering_montani_ginivra"></div>
 
@@ -285,7 +289,7 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 
 #### Interpretazione dei cluster
 
- `Gruppo 0 – Piccole località montane periferiche`
+ ##### Gruppo 0. – Piccole località montane periferiche
 
 - **Numero di comuni:** 164
 - **Presenza di impianti:** limitata.
@@ -298,7 +302,7 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica limitata e un progressivo indebolimento demografico.
 
 ---
-`Gruppo 1 – Montagna accessibile e residenziale`
+##### Gruppo 1. – Montagna accessibile e residenziale
 
 - **Numero di comuni:** 94
 - **Presenza di impianti:** contenuta
@@ -310,7 +314,7 @@ Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica 
 Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia residenziale sia turistica, beneficiando della vicinanza ai principali centri urbani.
 
  
-`Gruppo 2 – Montagna isolata con criticità infrastrutturali`
+##### Gruppo 2. – Montagna isolata con criticità infrastrutturali
 
 - **Numero di comuni:** 126
 - **Accessibilità:** molto bassa (53 min dal primo hub).
@@ -321,7 +325,7 @@ Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia
 
 Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrastrutturali e dalla distanza dai principali poli.
 
-`Gruppo 3 – Località montane in trasformazione`
+##### Gruppo 3. – Località montane in trasformazione
 
 - **Numero di comuni:** 205
 - **Accessibilità:** intermedia
@@ -332,7 +336,7 @@ Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrast
 
 Rappresentano località montane meno elevate, nelle quali la diminuzione dell'innevamento potrebbe incidere maggiormente sulla competitività del turismo invernale.
 
-`Gruppo 4 – Destinazioni sciistiche di pregio`
+##### Gruppo 4. – Destinazioni sciistiche di pregio
 
 - **Numero di comuni:** 37
 - **Accessibilità:** limitata ma compensata dall'attrattività turistica.
@@ -345,7 +349,7 @@ Rappresentano località montane meno elevate, nelle quali la diminuzione dell'in
 
 Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobiliare di valore elevato e da un'offerta turistica consolidata.
 
-`Gruppo 5 – Grandi poli dello sci`
+##### Gruppo 5. – Grandi poli dello sci
 
 - **Numero di comuni:** 11
 - **Accessibilità:** comuni molto isolati
@@ -361,7 +365,8 @@ Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geog
 `Clustering sui comuni Alpini su features (LEO??)` 
 plot feature importance SHAP
 
-#### Random Forest e Features Importance su comuni Alpini (variabile target: spopolamento SI/NO)
+#### Cosa spiega lo spopolamento nei comuni alpini?
+Random Forest e Features Importance su comuni Alpini (variabile target: spopolamento SI/NO)
 
 <div id="feature_imp_ginevra_montani"></div>
 
