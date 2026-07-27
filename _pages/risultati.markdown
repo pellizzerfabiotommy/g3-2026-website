@@ -12,13 +12,15 @@ L'applicazione di tecniche di data analysis e clustering ha permesso di superare
 
 
 
-1. **IL PANORAMA NAZIONALE**EDA su aspetti di accessibilità, turismo, demografia e redditi su comuni italiani e aree alpine
---MAPPE/VISUALIZZAZIONE
+1. **IL PANORAMA NAZIONALE** 
 
- 
+Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia, accessibilità, rischio idrogeologico e turismo. Rappresentano un momento importante della nostra analisi, in cui abbiamo cercato di rispondere a domande quali:
+- Come è distribuito lo spopolamento nel territorio italiano, e quali differenze si evidenziano tra aree diverse? 
+- Come si relaziona lo spopolamento all'accessibilità? Il decadimento dell'accessibilità in funzione dell'altitudine ha lo stesso significato (e distribuzione) in diverse aree del territorio italiano?
+- Dove si evidenziano scostamenti tra delta negativi e altitudine, ad esempio, zone in cui lo spopolamento non correla all'altitudine? E quali fattori indipendenti possiamo rilevare (es. rischio alluvioni, problemi infrastrutturali)?
+- Possiamo identificare aree che, seppur vicine, mostrano fenomeni opposti (es.turismo e crescita; turismo e spopolamento)?
 
-Mappa spopolamento 
-
+*MAPPA CRESCITA E SPOPOLAMENTO*
 <div id="mappaSpopolamento"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -30,7 +32,24 @@ Mappa spopolamento
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-Mappa accessibilità 
+
+*MAPPA SPOPOLAMENTO E TERRITORIO*
+
+<div id="mappa_interattiva"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/interattiva_spop.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+
+
+*MAPPA ACCESSIBILITA'*
 
 <div id="mappaAccessiblita"></div>
 
@@ -52,9 +71,12 @@ Mappa accessibilità
 
 
 4. **Clustering sui comuni italiani sotto i 15.000 abitanti**
+
+*FEATURES & RISULTATI*
+
 plot imp features 
 
-
+*CLUSTER INDIVIDUATI*
 
 <div id="clusterItaliaGinevra"></div>
 
@@ -67,10 +89,25 @@ plot imp features
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
+ 
+
 
 5. **Clustering sui comuni Alpini su features.... ** 
 esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
 
+*FEATURES & RISULTATI*
+
+*CLUSTER INDIVIDUATI (MONTANI)*
+<div id="clusterMontaniGinevra"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#clusterMontaniGinevra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 
 6. **Clustering sui comuni Alpini su features bla bla** 
