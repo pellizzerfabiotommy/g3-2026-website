@@ -120,16 +120,8 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
 
 #### Interpretazione dei cluster
 
-    da appunti, questi sono i numeri dei cluster che avevo segnato:
-0    1653
-2    1374
-5     891
-6     607
-4     524
-1     144
-3       2
-`Cluster 0, n.comuni: – Aree collinari ben accessibili e mercato turistico medio` 
-- **Altitudine media:** collinare (1.58)
+`Cluster 0, n.comuni: 1653 – Aree ben accessibili e mercato turistico medio` 
+- **Altitudine media:** altitudine media (1.58)
 - **Tempo al primo hub (>15.000 ab.):** 18 min
 - **Popolazione raggiungibile in 40 minuti:** ~469.000 abitanti
 - **Strutture ricettive:** 11
@@ -139,8 +131,8 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
 
 È un cluster caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
  
-`Cluster 1, n.comuni:– Aree montane turistiche consolidate`
-- **Altitudine media:** montana (2.83)
+`Cluster 1, n.comuni: 144 – Aree montane turistiche consolidate`
+- **Altitudine media:** altitudine media (2.83)
 - **Tempo al primo hub:** 37 min
 - **Popolazione raggiungibile:** ~206.000 abitanti
 - **Strutture ricettive:** 163
@@ -151,7 +143,7 @@ La seguente tabella riassume la metodologia e il significato degli indicatori ut
 Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
  
 
-`Cluster 2 – Aree montane marginali`
+`Cluster 2, n. comuni: 1374 -  Aree marginali`
 - **Altitudine media:** montana (2.79)
 - **Tempo al primo hub:** 34 min
 - **Popolazione raggiungibile:** ~147.000 abitanti
@@ -164,20 +156,7 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 
  
 
-`Cluster 3 – Poli urbani`
-- **Altitudine media:** pianura (1.00)
-- **Tempo al primo hub:** 31 min
-- **Popolazione raggiungibile:** ~222.000 abitanti
-- **Strutture ricettive:** 4.649
-- **Prezzo medio:** 2.218 €
-- **Crescita dal 1992:** +10%
-- **Delta frizione:** 2.7 (rete molto efficiente)
-
-Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentrazione di strutture ricettive, prezzi immobiliari elevati e buona qualità della rete stradale. La crescita demografica positiva conferma la loro attrattività.
-
- 
-
-`Cluster 4 – Aree metropolitane accessibili`
+`Cluster 4, n. comuni: 524– Aree metropolitane accessibili`
 - **Altitudine media:** pianura (1.26)
 - **Tempo al primo hub:** 12 min
 - **Popolazione raggiungibile:** ~1,79 milioni di abitanti
@@ -189,7 +168,7 @@ Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentraz
 È il cluster con la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
 
  
-`Cluster 5 – Aree collinari in espansione`
+`Cluster 5, n. comuni: 891 – Aree in espansione`
 - **Altitudine media:** collina (2.02)
 - **Tempo al primo hub:** 18 min
 - **Popolazione raggiungibile:** ~520.000 abitanti
@@ -201,7 +180,7 @@ Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentraz
 Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
 
 
-`Cluster 6 – Aree montane isolate`
+`Cluster 6, n.comuni: 607 – Aree montane isolate`
 - **Altitudine media:** montana (3.48)
 - **Tempo al primo hub:** 48 min
 - **Popolazione raggiungibile:** ~82.000 abitanti
@@ -316,8 +295,10 @@ Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geog
 plot feature importance SHAP
 
 ### Classificazione 
-    - random forest nazionale
-    - random forest montano 
+
+### random forest nazionale
+
+### random forest montano 
  
 ---spiegazione  
 
@@ -326,32 +307,22 @@ plot feature importance SHAP
 
 ## I RISULTATI IN SINTESI 
 
-I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non solo non basta a proteggere la sopravvivenza demografica della montagna, ma può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
+I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non sempre basta a garantire la sopravvivenza demografica della montagna; a volte può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
 Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili posso presentare alta vocazione turistica (l'interesse verso alcuni luoghi fa superare alcune barriere, e forse è tipco di certe destinazioni l'essere isolate).
 
-Nel nord, l'altitudine ha un forte potere esplicativo rispetto all'accessibilità. La rete infrastrutturale generale è più solida e risente prevalentemente di limitazioni legate ai territori a quota eleveta; l'accessibilità del centro italia parte da valori più bassi, quella del sud mostra criticità più generali, anche indipendenti dalla quota.
+Nel nord, l'altitudine ha un forte potere esplicativo rispetto all'accessibilità. La rete infrastrutturale generale è più solida e risente prevalentemente di limitazioni legate ai territori a quota eleveta; l'accessibilità del centro italia parte da valori più bassi, quella del sud suggerisce criticità più generali, forse indipendenti dall'altitudine.
 
-
-Le features maggiormente rilevanti a **livello globale sono**: accessibilità, turismo, redditi, stratificazione demografica. 
-
+Le features maggiormente rilevanti a **livello globale sono**: accessibilità, turismo, redditi, stratificazione demografica.
 
 Le features maggiormente rilevanti a **livello alpino**: accessibilità, turismo, variazioni climatiche, redditi.
 
-Una cosa interessante, che rappresenta un possibile punto di partenza per sviluppi ulteriore, è il fatto che le features rilevanti a livello globale possono giocare ruoli differenti a seconda dei contesti.
+Una cosa interessante, che rappresenta un possibile punto di partenza per sviluppi ulteriori, è il fatto che le features rilevanti a livello globale sembrano giocare ruoli differenti a seconda dei contesti.
 
-- nei **territori resilienti**, l'obiettivo è consolidare i fattori di attrattività (servizi, mobilità, diversificazione economica);
-- nei **territori vulnerabili**, sono prioritari gli interventi contro lo spopolamento, la riduzione del rischio idrogeologico e il mantenimento dei servizi essenziali;
-- nei **territori intermedi/in transizione**, assumono rilievo le strategie di adattamento climatico e la diversificazione dell'economia locale, in particolare riducendo la dipendenza dal turismo legato alla neve.
+A livello di comprensione del fenomeno, questo lavoro può costituire un punto di partenza per analisi più dettagliate. Il clustering e le mappe,ad esempio, sono funzionali all'individuazione di unità analitiche più significative di quelle imposte dai confini amministrativi (es. aree di comuni che condividono alcuni trend, es. forte spopolamento e pressione turistica vs. crescita e pressione turistica), cambiando granularità nelle analisi (utilizzando dati su flussi stagionali, non solo annuali). 
 
-A livello di comprensione del fenomeno, questa analisi può costituire il punto di partenza per analisi più dettagliate, utilizzando unità analitiche più significative delle unità amministrative (es. aree di comuni che condividono alcuni trend, es. forte spopolamento e pressione turistica vs. crescita e pressione turistica), cambiando granularità nelle analisi (utilizzando dati su flussi stagionali, non solo annuali). 
-
-Può anche offrire un possibile punto di partenza per indirizzare politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
+Può anche essere rilevante per la progettazione di misure politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
 
 
-
-- il clustering sulle serie storiche ha evidenziato.....
-
--mappe e grafici hanno confermato che..... 
 
 <script>
   const chartData = {{ site.data.chart | jsonify }};
