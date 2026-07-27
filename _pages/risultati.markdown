@@ -204,7 +204,6 @@ Comprende località montane con forte vocazione turistica. Pur essendo relativam
 Sono territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.
 
  
-
 `Gruppo 4. Aree metropolitane accessibili`
 - **Numero di comuni:** 524
 - **Altitudine media:** pianura (1.26)
@@ -218,7 +217,8 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 È il cluster con la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
 
  
-`Cluster 5, n. comuni: 891 – Aree in espansione`
+`Gruppo 5. Aree in espansione`
+- **Numero di comuni:** 891
 - **Altitudine media:** collina (2.02)
 - **Tempo al primo hub:** 18 min
 - **Popolazione raggiungibile:** ~520.000 abitanti
@@ -259,7 +259,7 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 
 #### Valutazione e Prestazioni del Modello
 
-**Accuratezza Globale (Accuracy):** 72%<br>  
+**Accuratezza Globale (Accuracy):** 72%<br>
 **Precision:** classe 0 - 75%; classe 1 - 68%<br>
 **Recall:** classe 0 - 74%; classe 1 - 70%<br>
 
@@ -267,86 +267,88 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 
 ### Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
 
-<div id="clusterItaliaGinevra_montani"></div>
+<div id="clustering_montani_ginivra"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#clusterItaliaGinevra_montani', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+  vegaEmbed('#clustering_montani_ginivra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
 #### Interpretazione dei cluster
 
- `Cluster 0 – Piccole località montane periferiche`
+ `Gruppo 0 – Piccole località montane periferiche`
 
-- Presenza di impianti limitata.
-- Accessibilità ridotta (41 min dal primo hub e meno di 100 mila abitanti raggiungibili).
-- Poche strutture ricettive (14 in media).
-- Prezzi immobiliari contenuti.
-- Marcato calo demografico (-17% dal 1992).
-- Elevata quota di abitazioni non occupate.
+- **Numero di comuni:** 164
+- **Presenza di impianti:** limitata.
+- **Accessibilità** ridotta (41 min dal primo hub e meno di 100 mila abitanti raggiungibili).
+- **Strutture ricettive:** Poche (14 in media).
+- **Prezzi immobiliari** contenuti.
+- **Demografia:**  marcato Calo (-17% dal 1992).
+- **Quota di abitazioni non occupate:** Elevata.
 
 Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica limitata e un progressivo indebolimento demografico.
 
 ---
+`Gruppo 1 – Montagna accessibile e residenziale`
 
-`Cluster 1 – Montagna accessibile e residenziale`
-
-- Buona accessibilità (21 min dal primo hub).
-- Bacino potenziale di quasi 500 mila abitanti.
-- Crescita demografica positiva (+16%).
-- Prezzi immobiliari medio-alti.
-- Bassa quota di abitazioni vuote.
-- Presenza di impianti contenuta.
+- **Numero di comuni:** 94
+- **Presenza di impianti:** contenuta
+- **Accessibilità** buona (21 min dal primo hub).
+- **Prezzi immobiliari** medio-alto.
+- **Demografia:** crescita positiva (+16%)
+- **Quota di abitazioni non occupate:** Bassa
 
 Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia residenziale sia turistica, beneficiando della vicinanza ai principali centri urbani.
 
  
-`Cluster 2 – Montagna isolata con criticità infrastrutturali`
+`Gruppo 2 – Montagna isolata con criticità infrastrutturali`
 
-- Accessibilità molto bassa (53 min dal primo hub).
-- Peggiore qualità della rete stradale (delta frizione più elevato).
-- Bacino di popolazione ridotto.
-- Turismo limitato.
-- Prezzi immobiliari relativamente bassi.
-- Calo demografico moderato.
+- **Numero di comuni:** 126
+- **Accessibilità:** molto bassa (53 min dal primo hub).
+- **Delta frizione:** elevato
+- **Prezzi immobiliari** relativamente bassi.
+- **Demografia:** calo moderato
+- **Turismo:** limitato
 
 Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrastrutturali e dalla distanza dai principali poli.
 
-`Cluster 3 – Località montane in trasformazione`
+`Gruppo 3 – Località montane in trasformazione`
 
-- Accessibilità intermedia.
-- Ridotta presenza di strutture ricettive.
-- Minore quota altimetrica rispetto agli altri cluster.
-- Maggiore riduzione dell'innevamento.
-- Prezzi immobiliari contenuti.
-- Dinamica demografica sostanzialmente stabile.
+- **Numero di comuni:** 205
+- **Accessibilità:** intermedia
+- **Strutture ricettive:** ridotta
+- **Prezzi immobiliari** contenuti
+- **Demografia:** sostanzialmente stabile.
+- **Perdite di innevamento:** bassa
 
 Rappresentano località montane meno elevate, nelle quali la diminuzione dell'innevamento potrebbe incidere maggiormente sulla competitività del turismo invernale.
 
-`Cluster 4 – Destinazioni sciistiche di pregio`
+`Gruppo 4 – Destinazioni sciistiche di pregio`
 
-- Elevata presenza di impianti.
-- Offerta ricettiva molto sviluppata (75 strutture in media).
-- Prezzi immobiliari più elevati.
-- Quota altimetrica molto elevata.
-- Perdite di innevamento relativamente contenute.
-- Accessibilità limitata ma compensata dall'attrattività turistica.
+- **Numero di comuni:** 37
+- **Accessibilità:** limitata ma compensata dall'attrattività turistica.
+- **Quota altimetrica:** molto elevata
+- **Strutture ricettive:** molto sviluppata (75 strutture in media).
+- **Prezzi immobiliari** elevati
+- **Presenza impianti:** elevata
+- **Perdite di innevamento:** relativamente contenute.
+- **Quota altimetrica:**  molto elevata
 
 Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobiliare di valore elevato e da un'offerta turistica consolidata.
 
-`Cluster 5 – Grandi poli dello sci`
+`Gruppo 5 – Grandi poli dello sci`
 
-- Massima presenza di impianti.
-- Oltre 440 strutture ricettive in media.
-- Comuni molto isolati.
-- Bacino di popolazione ridotto.
-- Prezzi immobiliari molto elevati.
-- Condizioni nivologiche relativamente favorevoli.
-- Elevata incidenza di seconde case.
+- **Numero di comuni:** 11
+- **Accessibilità:** comuni molto isolati
+- **Strutture ricettive:** molto alta (Oltre 440 strutture ricettive in media.).
+- **Prezzi immobiliari** molto elevati
+- **Presenza impianti:** massima
+- **Perdite di innevamento:** relativamente contenute.
+- **Presenza  seconde case:** Elevata
 
 Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geografico, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva e valori immobiliari elevati.
 
