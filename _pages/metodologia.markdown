@@ -30,29 +30,29 @@ La raccolta dei dati è stata automatizzata tramite script Python dedicati all'i
 
 Sui dati raccolti sono stati applicati diversi algoritmi di machine learning, scelti in base all'obiettivo analitico:
 
-- **Clustering**, per individuare gruppi di comuni con caratteristiche simili in termini di spopolamento, accessibilità e contesto socioeconomico: *K-Means*, *DBSCAN* e clustering *gerarchico*;
-- **Classificazione**, per identificare i fattori più rilevanti nel distinguere comuni a rischio di abbandono da comuni stabili: *Random Forest* e *regressione logistica*;
+- **Clustering**, per individuare gruppi di comuni con caratteristiche simili in termini di spopolamento, accessibilità e contesto socioeconomico
+- **Classificazione**, per identificare i fattori più rilevanti nel distinguere comuni a rischio di abbandono da comuni stabili
 - **Regressione lineare**, per quantificare la relazione tra variabili demografiche, infrastrutturali ed economiche;
 - **Clustering su serie storiche**, per identificare pattern relativi alle serie storiche 
 
 ## Strumenti e strategie
 
-* **Linguaggi di programmazione:** Python, SQL
+**Linguaggi di programmazione:** Python, SQL
 
-* **Librerie principali:**
+**Librerie principali:**
 - `pandas`, `numpy` — manipolazione e analisi dei dati
 - `scikit-learn` — preprocessing e modelli di machine learning (clustering, classificazione, regressione)
 - `statsmodels` — modelli statistici e regressioni su serie storiche
 - `scipy` — analisi di correlazione e calcolo delle distanze tra osservazioni
 - `matplotlib`, `seaborn`,`Altair` — visualizzazione dei dati e dei risultati
 
-* **Algoritmi:**
+**Algoritmi:**
 - `Kmeans, Hierarchical Clustering, Dbscan, Hdbscan, DTW` (Clustering)
 - `Random Forest` (Classificazione)
 
-* **Strategie di preprocessing e feature engineering:**
+**Strategie di preprocessing e feature engineering:**
 
-- **normalizzazione codice** istat per gestire le serie storiche (comuni che si sono accorpati)
-- **creazione di indicatori** (es. per riassumere serie storiche) 
-- **ri-organizzazione** dati, attraverso pivot, raggruppamenti (es. per ottenere granularità 1 riga 1 comune)
-- **gestione dei nulli** attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti
+- normalizzazione codice istat per gestire le serie storiche (comuni che si sono accorpati)
+- creazione di indicatori (es. per riassumere serie storiche) 
+- ri-organizzazione dati, attraverso pivot, raggruppamenti (es. per ottenere granularità 1 riga 1 comune)
+- gestione dei nulli attraverso imputazione (v. serie storica flussi turistici presentava nulli durante il covid), dati mancanti

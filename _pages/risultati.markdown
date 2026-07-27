@@ -10,9 +10,7 @@ permalink: /risultati/
 
 L'applicazione di tecniche di data analysis e clustering ha permesso di superare una lettura uniforme dello spopolamento, mostrando come i piccoli comuni italiani — e in particolare quelli montani — non costituiscano un insieme omogeneo, ma un mosaico di territori con traiettorie evolutive differenti, determinate dalla combinazione di accessibilità ai servizi, contesto altimetrico, rischio idrogeologico, dinamiche climatiche, valori immobiliari e andamento demografico di lungo periodo.
 
-
-
-1. **IL PANORAMA NAZIONALE** 
+ ### IL PANORAMA NAZIONALE 
 
 Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia, accessibilità, rischio idrogeologico e turismo. Rappresentano un momento importante della nostra analisi, in cui abbiamo cercato di rispondere a domande quali:
 - Come è distribuito lo spopolamento nel territorio italiano, e quali differenze si evidenziano tra aree diverse? 
@@ -20,7 +18,17 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 - Dove si evidenziano scostamenti tra delta negativi e altitudine, ad esempio, zone in cui lo spopolamento non correla all'altitudine? E quali fattori indipendenti possiamo rilevare (es. rischio alluvioni, problemi infrastrutturali)?
 - Possiamo identificare aree che, seppur vicine, mostrano fenomeni opposti (es.turismo e crescita; turismo e spopolamento)?
 
-*MAPPA CRESCITA E SPOPOLAMENTO*
+### Nota Metodologica su Indicatori
+
+La seguente tabella riassume la metodologia e il significato degli indicatori utilizzati nelle mappe interattive sottostanti:
+
+| Indicatore / Metrica | Metodologia di Calcolo | Significato Analitico |
+| :--- | :--- | :--- |
+| **Accessibilità Alpha 2**<br>*(raggio 45 min)* | Somma degli *score* assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.<br><br>$$\text{Score} = \frac{\text{Popolazione Destinazione}}{\text{Tempo Effettivo}^2}$$ | Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza. |
+| **Delta Frizione Medio**<br>*(raggio 80 min)* | Differenza tra il **tempo effettivo di viaggio** (grafo TomTom) e il **tempo ideale** (senza ritardi dovuti a traffico, meteo o chiusura strade). | Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. |
+
+
+
 <div id="mappaSpopolamento"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -32,8 +40,6 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-
-*MAPPA SPOPOLAMENTO E TERRITORIO*
 
 <div id="mappa_interattiva"></div>
 
@@ -48,9 +54,6 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 
 
 
-
-*MAPPA ACCESSIBILITA'*
-
 <div id="mappaAccessiblita"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -64,26 +67,31 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 
 
 
-2. **Clustering su serie storica demografica**
+### Clustering su serie storica demografica 
 
-   <div id="descriptivo_storico"></div>
-
+<div id="descriptivo_storico"></div>
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
 <script>
   vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-3. **Clustering nazionale**, su tutti i comuni italiani, utilizzando dati del triennio 2023-2025
+
+#### Interpretazione dei cluster
+
+
+
+### Clustering nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
 
    PARTE LEO 
 
-4. **Clustering sui comuni italiani sotto i 15.000 abitanti**
 
-*FEATURES & RISULTATI*
+#### Interpretazione dei cluster
+
+
+### Clustering nazionale sui comuni sotto i 15.000 abitanti
 
 
 <div id="feature_imp_ginevra_it"></div>
@@ -110,9 +118,17 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-## Interpretazione dei cluster
+#### Interpretazione dei cluster
 
-### Cluster 0 – Aree collinari ben accessibili e mercato turistico medio
+    da appunti, questi sono i numeri dei cluster che avevo segnato:
+0    1653
+2    1374
+5     891
+6     607
+4     524
+1     144
+3       2
+`Cluster 0, n.comuni: – Aree collinari ben accessibili e mercato turistico medio` 
 - **Altitudine media:** collinare (1.58)
 - **Tempo al primo hub (>15.000 ab.):** 18 min
 - **Popolazione raggiungibile in 40 minuti:** ~469.000 abitanti
@@ -123,7 +139,7 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 
 È un cluster caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
  
-### Cluster 1 – Aree montane turistiche consolidate
+`Cluster 1, n.comuni:– Aree montane turistiche consolidate`
 - **Altitudine media:** montana (2.83)
 - **Tempo al primo hub:** 37 min
 - **Popolazione raggiungibile:** ~206.000 abitanti
@@ -135,7 +151,7 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
  
 
-### Cluster 2 – Aree montane marginali
+`Cluster 2 – Aree montane marginali`
 - **Altitudine media:** montana (2.79)
 - **Tempo al primo hub:** 34 min
 - **Popolazione raggiungibile:** ~147.000 abitanti
@@ -148,7 +164,7 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 
  
 
-### Cluster 3 – Poli urbani
+`Cluster 3 – Poli urbani`
 - **Altitudine media:** pianura (1.00)
 - **Tempo al primo hub:** 31 min
 - **Popolazione raggiungibile:** ~222.000 abitanti
@@ -161,7 +177,7 @@ Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentraz
 
  
 
-### Cluster 4 – Aree metropolitane accessibili
+`Cluster 4 – Aree metropolitane accessibili`
 - **Altitudine media:** pianura (1.26)
 - **Tempo al primo hub:** 12 min
 - **Popolazione raggiungibile:** ~1,79 milioni di abitanti
@@ -173,7 +189,7 @@ Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentraz
 È il cluster con la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
 
  
-### Cluster 5 – Aree collinari in espansione
+`Cluster 5 – Aree collinari in espansione`
 - **Altitudine media:** collina (2.02)
 - **Tempo al primo hub:** 18 min
 - **Popolazione raggiungibile:** ~520.000 abitanti
@@ -184,9 +200,8 @@ Rappresenta i principali centri urbani, caratterizzati dalla maggiore concentraz
 
 Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
 
- 
 
-### Cluster 6 – Aree montane isolate
+`Cluster 6 – Aree montane isolate`
 - **Altitudine media:** montana (3.48)
 - **Tempo al primo hub:** 48 min
 - **Popolazione raggiungibile:** ~82.000 abitanti
@@ -198,12 +213,7 @@ Comprende territori collinari con buona accessibilità e forte crescita demograf
 Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
 
 
-
-5. **Clustering sui comuni Alpini** 
-esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne a un territorio spesso percepito come uniformemente marginale.
-
-*FEATURES & RISULTATI*
-
+### Clustering  sui comuni Alpini  
 
 <div id="feature_imp_ginevra_montani"></div>
 
@@ -229,11 +239,9 @@ esclusivamente ai comuni Alpini, per indagare le differenti traiettorie interne 
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-## Interpretazione dei cluster
-#%% md
-## Interpretazione dei cluster
+#### Interpretazione dei cluster
 
-### Cluster 0 – Piccole località montane periferiche
+ `Cluster 0 – Piccole località montane periferiche`
 
 - Presenza di impianti limitata.
 - Accessibilità ridotta (41 min dal primo hub e meno di 100 mila abitanti raggiungibili).
@@ -246,7 +254,7 @@ Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica 
 
 ---
 
-### Cluster 1 – Montagna accessibile e residenziale
+`Cluster 1 – Montagna accessibile e residenziale`
 
 - Buona accessibilità (21 min dal primo hub).
 - Bacino potenziale di quasi 500 mila abitanti.
@@ -257,9 +265,8 @@ Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica 
 
 Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia residenziale sia turistica, beneficiando della vicinanza ai principali centri urbani.
 
----
-
-### Cluster 2 – Montagna isolata con criticità infrastrutturali
+ 
+`Cluster 2 – Montagna isolata con criticità infrastrutturali`
 
 - Accessibilità molto bassa (53 min dal primo hub).
 - Peggiore qualità della rete stradale (delta frizione più elevato).
@@ -270,9 +277,7 @@ Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia
 
 Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrastrutturali e dalla distanza dai principali poli.
 
----
-
-### Cluster 3 – Località montane in trasformazione
+`Cluster 3 – Località montane in trasformazione`
 
 - Accessibilità intermedia.
 - Ridotta presenza di strutture ricettive.
@@ -283,9 +288,7 @@ Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrast
 
 Rappresentano località montane meno elevate, nelle quali la diminuzione dell'innevamento potrebbe incidere maggiormente sulla competitività del turismo invernale.
 
----
-
-### Cluster 4 – Destinazioni sciistiche di pregio
+`Cluster 4 – Destinazioni sciistiche di pregio`
 
 - Elevata presenza di impianti.
 - Offerta ricettiva molto sviluppata (75 strutture in media).
@@ -296,9 +299,7 @@ Rappresentano località montane meno elevate, nelle quali la diminuzione dell'in
 
 Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobiliare di valore elevato e da un'offerta turistica consolidata.
 
----
-
-### Cluster 5 – Grandi poli dello sci
+`Cluster 5 – Grandi poli dello sci`
 
 - Massima presenza di impianti.
 - Oltre 440 strutture ricettive in media.
@@ -311,10 +312,10 @@ Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobil
 Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geografico, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva e valori immobiliari elevati.
 
 
-6. **Clustering sui comuni Alpini su features bla bla** 
+`Clustering sui comuni Alpini su features (LEO??)` 
 plot feature importance SHAP
 
-7. **Classificazione**
+### Classificazione 
     - random forest nazionale
     - random forest montano 
  
@@ -323,7 +324,7 @@ plot feature importance SHAP
  
   
 
-## INTERPRETAZIONE GENERALE DEI RISULTATI 
+## I RISULTATI IN SINTESI 
 
 I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non solo non basta a proteggere la sopravvivenza demografica della montagna, ma può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
 Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili posso presentare alta vocazione turistica (l'interesse verso alcuni luoghi fa superare alcune barriere, e forse è tipco di certe destinazioni l'essere isolate).
@@ -357,7 +358,7 @@ Può anche offrire un possibile punto di partenza per indirizzare politiche terr
 </script>
 ---
 
-## Dai numeri ai luoghi
+### Dai numeri ai luoghi
 
 Questi profili raccontano dinamiche statistiche su larga scala. Ma cosa significano concretamente per chi vive questi territori? Nella sezione **Casi Studio** raccontiamo da vicino alcuni comuni rappresentativi di questi cluster, incrociando i dati con testimonianze dirette.
 
