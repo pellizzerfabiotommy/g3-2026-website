@@ -66,7 +66,16 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 
 2. **Clustering su serie storica demografica**
 
-   PARTE FIORELLA 
+   <div id="descriptivo_storico"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 3. **Clustering nazionale**, su tutti i comuni italiani, utilizzando dati del triennio 2023-2025
 
