@@ -95,8 +95,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 
 
-#### Interpretazione dei cluster
-## Gruppo 1. Crescita
+#### Interpretazione dei gruppi
+`Gruppo 1. Crescita `
 
 - **Numero di comuni:** 2.209
 - **Rischio frana (% area media):** 5,73%
@@ -109,7 +109,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un gruppo di comuni caratterizzato da migliore connettività, minore esposizione al rischio geologico e situato prevalentemente in zone di pianura. Presenta il mercato immobiliare più dinamico dei tre gruppi, con la crescita di prezzo più marcata.
 
-## Gruppo 2. Declino leve
+`Gruppo 2. Declino leve`
 
 - **Numero di comuni:** 618
 - **Rischio frana (% area media):** 8,86%
@@ -122,7 +122,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un gruppo di comuni in una fase intermedia di declino, con un profilo geografico anch'esso intermedio tra crescita e declino severo per rischio, altitudine e accessibilità. Il mercato immobiliare mostra ancora una lieve crescita, ma nettamente più debole rispetto al gruppo in crescita.
 
-## Gruppo 3. Declino severo
+`Gruppo 3. Declino severo`
 
 - **Numero di comuni:** 1.268
 - **Rischio frana (% area media):** 9,79%
@@ -166,7 +166,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 #### Interpretazione dei cluster
 
-`Cluster 0, n.comuni: 1653 – Aree ben accessibili e mercato turistico medio` 
+`Gruppo 0. Aree ben accessibili e mercato turistico medio` 
+- **Numero di comuni:** 1653
 - **Altitudine media:** altitudine media (1.58)
 - **Tempo al primo hub (>15.000 ab.):** 18 min
 - **Popolazione raggiungibile in 40 minuti:** ~469.000 abitanti
@@ -177,7 +178,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 È un cluster caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
  
-`Cluster 1, n.comuni: 144 – Aree montane turistiche consolidate`
+`Gruppo 1. Aree montane turistiche consolidate`
+- **Numero di comuni:** 144
 - **Altitudine media:** altitudine media (2.83)
 - **Tempo al primo hub:** 37 min
 - **Popolazione raggiungibile:** ~206.000 abitanti
@@ -189,7 +191,8 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
  
 
-`Cluster 2, n. comuni: 1374 -  Aree marginali`
+`Gruppo 2. Aree marginali`
+- **Numero di comuni:** 1374
 - **Altitudine media:** montana (2.79)
 - **Tempo al primo hub:** 34 min
 - **Popolazione raggiungibile:** ~147.000 abitanti
@@ -202,7 +205,8 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 
  
 
-`Cluster 4, n. comuni: 524 – Aree metropolitane accessibili`
+`Gruppo 4. Aree metropolitane accessibili`
+- **Numero di comuni:** 524
 - **Altitudine media:** pianura (1.26)
 - **Tempo al primo hub:** 12 min
 - **Popolazione raggiungibile:** ~1,79 milioni di abitanti
@@ -226,7 +230,8 @@ Sono territori montani periferici, con scarsa dotazione turistica e valori immob
 Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
 
 
-`Cluster 6, n.comuni: 607 – Aree montane isolate`
+`Gruppo 6. Aree montane isolate`
+- **Numero di comuni:** 607
 - **Altitudine media:** montana (3.48)
 - **Tempo al primo hub:** 48 min
 - **Popolazione raggiungibile:** ~82.000 abitanti
@@ -254,11 +259,9 @@ Rappresenta le aree più isolate del campione, con la minore accessibilità e la
 
 #### Valutazione e Prestazioni del Modello
 
-**Accuratezza Globale (Accuracy):** 72%
-
-**Precision:** classe 0 - 75%; classe 1 - 68%
-
-**Recall:** classe 0 - 74%; classe 1 - 70% 
+**Accuratezza Globale (Accuracy):** 72%<br>  
+**Precision:** classe 0 - 75%; classe 1 - 68%<br>
+**Recall:** classe 0 - 74%; classe 1 - 70%<br>
 
 
 
@@ -366,11 +369,9 @@ plot feature importance SHAP
 
 #### Valutazione e Prestazioni del Modello
 
-**Accuratezza Globale (Accuracy):** 76%
-
-**Precision:** classe 0 - 76%; classe 1 - 76%
-
-**Recall:** classe 0 - 64%; classe 1 - 85% 
+**Accuratezza Globale (Accuracy):** 76%<br>
+**Precision:** classe 0 - 76%; classe 1 - 76%<br>
+**Recall:** classe 0 - 64%; classe 1 - 85%<br>
 
 
 ## I RISULTATI IN SINTESI 
