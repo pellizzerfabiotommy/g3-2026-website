@@ -24,7 +24,7 @@ Le seguenti mappe e grafici sono state generate utilizzando i dati raccolti sul 
 **Accessibilità Alpha 2** (raggio 45 min):
 Somma degli score di popolazione assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.
 (Score dest. = Popolazione Destinazione / Tempo Effettivo²) 
-Misura la centralità di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza.  
+Misura la centralità di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza. Raggruppando diversi comuni, l'accessibilità media può anche esprimere la facilità o difficoltà nelle connesioni tra unità territoriali.  
 
 **Delta Frizione Medio** (raggio 80 min):
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
@@ -139,7 +139,43 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
 
-   PARTE LEO 
+<div id="mappa_leo_cluster"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#mappa_leo_cluster', '{{ site.baseurl }}/assets/charts/2_mappa_clusterk8_Leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+<div id="indicatori_leo_cluster"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#indicatori_leo_cluster', '{{ site.baseurl }}/assets/charts/4_Indicatori_clusterk8_italia_leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+
+<div id="shap_leo_cluster"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#shap_leo_cluster', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+
 
 
 #### Interpretazione dei cluster
