@@ -124,8 +124,46 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 
+#### Stessa montagna, due destini opposti
 
-<div id="p2"></div>
+Andalo e Cavedago sono a 2,7 km di distanza, stesso comprensorio sciistico della Paganella. Andalo ha 154 arrivi turistici pro capite — 13 volte Cavedago — eppure perde l'1,9% di popolazione ogni anno. Cavedago, con appena 12 arrivi pro capite, cresce del 2%. Il turismo, da solo, non basta a spiegarlo.
+
+<style>
+  .grafico-scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 12px;      
+    border: 1px solid rgba(0, 0, 0, 0.06); 
+  }
+  .grafico-scroll-container > div {
+    display: inline-block;     
+  }
+</style>
+
+<div class="grafico-scroll-container" style="margin: 40px auto 0 auto; width: fit-content;">
+  <div id="p1"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<script>
+vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+"Il pattern si ripete: dove il turismo è più intenso, la popolazione residente tende a calare di più. È una coincidenza, o c'è un meccanismo?"
+
+| Territorio  |     Comune "top turistico"  |   Var. popolazione |   Comune "satellite" (2-3 km) | Var. popolazione |
+|----| ----| ----| ----|----|
+| Val di Fassa (TN) |  Campitello di Fassa  | -0,4% |  Mazzin | +0,2% |
+| Val Badia (BZ)  |  Marebbe  |-0,1% |   La Valle |     +1,0% |
+| Lago d'Orta (NO) |  Orta San Giulio | -4,3% |Ameno|   -1,2% |
+
+Abbiamo raggruppato i 7.500 comuni italiani in 8 famiglie di territori, in base a demografia, turismo, reddito e accessibilità. Se coloriamo l'Italia vera con questi gruppi, il pattern si vede a colpo d'occhio: le Alpi non sono un blocco unico, sono spezzate tra due colori — le 'Aree ad altissima intensità turistica' come Andalo, e le 'Aree isolate a vocazione turistica' come Cavedago. È esattamente il confine che vi ho appena raccontato, ma visto su tutta Italia."
+
+<div id="p2" style="margin: 40px auto 0 auto; width: fit-content;"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -136,7 +174,10 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-<div id="p3"></div>
+#### Non è il turismo a decidere. È l'anagrafe.
+Il turismo è quello che si nota per primo, ma i dati raccontano un'altra storia: nel cluster più turistico d'Italia (309 comuni, come Andalo), il 38% dei comuni sta comunque crescendo — il turismo da solo non basta a spiegare chi si spopola. Quello che invece è quasi sempre vero è l'età della popolazione: nelle "Aree in forte spopolamento" (1.162 comuni) l'indice di vecchiaia medio è 349 anziani ogni 100 giovani — più del doppio della media nazionale — e la natalità è la più bassa d'Italia. Il 97% di questi comuni ha un indice di vecchiaia sopra la mediana nazionale. I paesi non muoiono per mancanza di turisti. Muoiono per mancanza di bambini.
+
+<div id="p3" style="margin: 40px auto 0 auto; width: fit-content;"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -147,9 +188,13 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-<div id="p4"></div>
+#### Gli 8 volti dell'Italia, nel dettaglio
 
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+Ogni cluster ha una carta d'identità precisa. Qui sotto trovate, per ciascuno degli 8 gruppi, gli indicatori che lo caratterizzano di più — numero di comuni, reddito, natalità, turismo, accessibilità, rischio idrogeologico. Le celle più colorate indicano gli scostamenti più marcati rispetto alla media nazionale: è così che il modello "riconosce" un'Area Urbana Benestante da un'Area in forte spopolamento, o le Aree Giovani a Basso reddito — povere ma le più giovani d'Italia — dalle Aree isolate a vocazione turistica come Cavedago.
+
+<div id="p4" style="margin: 40px auto 0 auto; width: fit-content;"></div>
+
+<script src="https://cdn.jsdeliv[risultati2.markdown](../../../Users/leona/Downloads/Download2/risultati2.markdown)[risultati2.markdown](../../../Users/leona/Downloads/Download2/risultati2.markdown)r.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
@@ -158,8 +203,11 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
+#### Cosa "vede" davvero il modello in ogni cluster
 
-<div id="p5"></div>
+Abbiamo chiesto a un modello di spiegare cosa distingue ciascuno degli 8 cluster. Il risultato conferma quello che abbiamo raccontato finora: per il cluster di Andalo pesa quasi solo il turismo (la percentuale di turisti sul totale), mentre per il cluster di Cavedago contano di più l'accessibilità e la quota altimetrica — non è definito dal "poco turismo", ma dall'essere strutturalmente più isolato. E per le Aree in forte spopolamento, la variabile più importante in assoluto è l'indice di vecchiaia — la conferma quantitativa che qui non è il turismo a fare la differenza, ma la demografia.
+
+<div id="p5" style="margin: 40px auto 0 auto; width: fit-content;"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -169,6 +217,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
   vegaEmbed('#p5', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
+
 
 
 ---  
