@@ -505,20 +505,13 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 ## I RISULTATI IN SINTESI 
 
-I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non sempre basta a garantire la sopravvivenza demografica della montagna; a volte può essere un fattore di spopolamento, legato, ad esempio, al costo della vita o all'impatto dell'overtourism sulla qualità dei servizi e del benessere.
-Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili posso presentare alta vocazione turistica (l'interesse verso alcuni luoghi fa superare alcune barriere, e forse è tipco di certe destinazioni l'essere isolate).
+I risultati indicano che non esiste una quadro unitario, né per i piccoli comuni in generale né per la montagna in particolare. Il turismo non sempre basta a garantire la sopravvivenza demografica della montagna; a volte può essere un fattore di spopolamento, ad esempio, causando un aumento del costo della vita, o peggiorando la qualità dei servizi. Che altitudine significhi meno servizi e meno accessibilità sembra abbastanza intuitivo, ma da questo punto di vista la situazione non è omogenea, e ci sono delle differenze tra nord, sud, centro. Inoltre, comuni poco accessibili possono presentare alta vocazione turistica. 
 
-Nel nord, l'altitudine ha un forte potere esplicativo rispetto all'accessibilità. La rete infrastrutturale generale è più solida e risente prevalentemente di limitazioni legate ai territori a quota eleveta; l'accessibilità del centro italia parte da valori più bassi, quella del sud suggerisce criticità più generali, forse indipendenti dall'altitudine.
+Nel nord, l’altitudine sembra essere determinante rispetto all’accessibilità. La rete infrastrutturale generale è più solida e sembra risentire prevalentemente di limitazioni legate ai territori a quota elevata; l’accessibilità del centro italia parte da valori più bassi, mentre quella del sud suggerisce criticità più generali, a volte indipendenti dall’altitudine.
 
-Le features maggiormente rilevanti a **livello globale sono**: accessibilità, turismo, redditi, stratificazione demografica.
+Le features maggiormente rilevanti a livello globale sono: accessibilità, turismo, redditi, stratificazione demografica. Le features maggiormente rilevanti a livello alpino: accessibilità, turismo, variazioni climatiche, redditi. Le features rilevanti a livello globale sembrano giocare ruoli differenti a seconda dei contesti.
 
-Le features maggiormente rilevanti a **livello alpino**: accessibilità, turismo, variazioni climatiche, redditi.
-
-Una cosa interessante, che rappresenta un possibile punto di partenza per sviluppi ulteriori, è il fatto che le features rilevanti a livello globale sembrano giocare ruoli differenti a seconda dei contesti.
-
-A livello di comprensione del fenomeno, questo lavoro può costituire un punto di partenza per analisi più dettagliate. Il clustering e le mappe,ad esempio, sono funzionali all'individuazione di unità analitiche più significative di quelle imposte dai confini amministrativi (es. aree di comuni che condividono alcuni trend, es. forte spopolamento e pressione turistica vs. crescita e pressione turistica), cambiando granularità nelle analisi (utilizzando dati su flussi stagionali, non solo annuali). 
-
-Può anche essere rilevante per la progettazione di misure politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
+Questo lavoro può costituire un punto di partenza per analisi più dettagliate. I clustering e le mappe, ad esempio, sono funzionali all’individuazione di unità analitiche più significative di quelle imposte dai confini amministrativi (es. aree di comuni che condividono alcuni trend, es. forte spopolamento e pressione turistica vs. crescita e pressione turistica), che possono essere combinate ad analisi con granularità diverse (es. dati su flussi stagionali, non solo annuali). Può anche essere rilevante per la progettazione di misure politiche territoriali differenziate e maggiormente mirate alle specifiche condizioni dei diversi contesti locali.
 
 
 

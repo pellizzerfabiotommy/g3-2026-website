@@ -39,10 +39,3 @@ vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.j
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-
- ---
-
-...Piazza al serchio - periferici in declino
-Cortina – turismo, si spopola di residenti
-Ziano di fiemme: turismo, in forte crescita
-Cimone: corridoio accessibilità, forte crescita
