@@ -34,23 +34,40 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 <style>
   .mapas-comparacion {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 24px;
     align-items: start;
     margin: 20px 0;
   }
   .mapa-container {
     width: 100%;
-    max-width: 700px;
-    max-height: 80vh;      /* limita la altura a un 80% de lo que se ve en pantalla */
-    overflow-y: auto;      /* si el contenido (mapa + sliders) es más alto, aparece scroll SOLO ahí, no en toda la página */
+    max-width: 500px;
+  }
+  .mapa-container p {
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #444;
   }
 </style>
 
 <div class="mapas-comparacion">
-  <div id="mappaSpopolamento" class="mapa-container"></div>
-  <div id="mappaAccessiblita" class="mapa-container"></div>
-  <div id="mappa_interattiva" class="mapa-container"></div>
+
+  <div class="mapa-container">
+    <p>La mappa 1 mostra il diverso grado di spopolamento e crescita (il delta tra inizio della serie storica e fine) dei comuni italiani di cui abbiamo ricavato le metriche di accessibilità (accessibilità alpha2 è visibile nel tooltip, insieme a fascia altimetrica, delta demografico e vocazione turistica). Possiamo osservare differenze interessanti: ad esempio, le aree montane del Friuli-Venezia Giulia mostrano alta vocazione turistica, accessibilità tendenzialmente bassa e forte spopolamento, mentre nelle vicine aree montane del Trentino-Alto Adige (che includono destinazioni molto note e ricercate) l'alta vocazione turistica si accompagna ad accessibilità più alta, e i comuni presentano trend positivi.</p>
+    <div id="mappaSpopolamento"></div>
+  </div>
+
+  <div class="mapa-container">
+    <p>La mappa 2 visualizza l'accessibilità (nel tooltip: delta frizione, delta demografico, fascia altimetrica media). Possiamo osservare un "corridoio" di alta accessibilità nel Trentino-Alto Adige. In generale, la mappa conferma quanto osservato nelle analisi riguardo alla distribuzione dell'accessibilità nel territorio italiano (differenze tra nord, centro e sud; decadimento dell'accessibilità all'aumentare dell'altitudine, soprattutto al nord; situazioni dove il ritardo infrastrutturale (delta frizione) correla con poca accessibilità).</p>
+    <div id="mappaAccessiblita"></div>
+  </div>
+
+  <div class="mapa-container">
+    <p>La mappa 3 invece permette di selezionare diversi intervalli di altitudine e di spopolamento, evidenziando i comuni montani (score di altezza media = 3, circa 800 mt). Questo consente di individuare in quali aree lo spopolamento si sovrappone (o si discosta) dall'altitudine, testando diversi range e verificando (nel tooltip) la presenza di impianti e score di accessibilità.</p>
+    <div id="mappa_interattiva"></div>
+  </div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -65,19 +82,6 @@ vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.j
     .catch(err => console.error('Errore rendering grafico:', err));
 
 vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>  
-
-
-
-<div id="jitter_acc"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#jitter_acc', '{{ site.baseurl }}/assets/charts/jitter_acc.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -137,7 +141,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ---
 
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
-Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
+
 
 <div id="mappa_leo_cluster"></div>
 
@@ -186,7 +190,6 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
 ---  
 
 ### I piccoli comuni d'Italia: profili a confronto
-Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest
 
 
 <div id="clusterItaliaGinevra"></div>
@@ -203,85 +206,147 @@ Clustering nazionale sui comuni sotto i 15.000 abitanti + Random Forest
 #### Interpretazione dei cluster  
 
 
-##### Gruppo 0. Aree ben accessibili e mercato turistico medio
-- **Numero di comuni:** 1653
-- **Altitudine media:** altitudine media (1.58)
-- **Tempo al primo hub (>15.000 ab.):** 18 min
-- **Popolazione raggiungibile in 40 minuti:** ~469.000 abitanti
-- **Strutture ricettive:** 11
-- **Prezzo medio:** 739 €
-- **Crescita dal 1992:** stabile (-1%)
-- **Delta frizione:** 3.1 (rete stradale efficiente)
+<style>
+  .grid-cluster {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .card-cluster {
+    background: #faf8f2;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card-cluster h5 {
+    color: #6b5a3f;
+    margin-top: 0;
+    border-bottom: 2px solid #6b5a3f;
+    padding-bottom: 8px;
+  }
+  .card-cluster ul {
+    padding-left: 18px;
+    margin-bottom: 12px;
+  }
+  .card-cluster p {
+    font-style: italic;
+    font-size: 0.95em;
+    color: #555;
+  }
+</style>
 
-È un gruppo caratterizzato da una buona accessibilità e da infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.
- 
-##### Gruppo 1. Aree montane turistiche consolidate
-- **Numero di comuni:** 144
-- **Altitudine media:** altitudine media (2.83)
-- **Tempo al primo hub:** 37 min
-- **Popolazione raggiungibile:** ~206.000 abitanti
-- **Strutture ricettive:** 163
-- **Prezzo medio:** 2.873 €
-- **Crescita dal 1992:** stabile
-- **Delta frizione:** 11.8 (viabilità difficoltosa)
+<div class="grid-cluster">
 
-Comprende località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.
- 
+  <div class="card-cluster">
+    <h5>Gruppo 0 – Comuni accessibili</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 1.653</li>
+      <li><strong>Altitudine media:</strong> 1,58</li>
+      <li><strong>Tempo al primo hub (&gt;15.000 ab.):</strong> 18 min</li>
+      <li><strong>Popolazione raggiungibile in 40 min:</strong> ~469.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 11</li>
+      <li><strong>Prezzo medio:</strong> 739 €</li>
+      <li><strong>Crescita dal 1992:</strong> stabile (−1%)</li>
+      <li><strong>Delta frizione:</strong> 3,1 (rete stradale efficiente)</li>
+    </ul>
+    <p>Buona accessibilità e infrastrutture viarie relativamente efficienti. La presenza turistica è contenuta e i prezzi immobiliari sono bassi, suggerendo territori periferici ma ben collegati.</p>
+  </div>
 
-##### Gruppo 2. Aree marginali
-- **Numero di comuni:** 1374
-- **Altitudine media:** montana (2.79)
-- **Tempo al primo hub:** 34 min
-- **Popolazione raggiungibile:** ~147.000 abitanti
-- **Strutture ricettive:** 9
-- **Prezzo medio:** 631 €
-- **Crescita dal 1992:** -23%
-- **Delta frizione:** 6.6
+  <div class="card-cluster">
+    <h5>Gruppo 1 – Destinazioni turistiche</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 144</li>
+      <li><strong>Altitudine media:</strong> 2,83</li>
+      <li><strong>Tempo al primo hub:</strong> 37 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~206.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 163</li>
+      <li><strong>Prezzo medio:</strong> 2.873 €</li>
+      <li><strong>Crescita dal 1992:</strong> stabile</li>
+      <li><strong>Delta frizione:</strong> 11,8 (viabilità difficoltosa)</li>
+    </ul>
+    <p>Località montane con forte vocazione turistica. Pur essendo relativamente isolate e servite da una rete stradale meno efficiente, registrano prezzi immobiliari molto elevati e un'elevata concentrazione di strutture ricettive.</p>
+  </div>
 
-Sono territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.
+  <div class="card-cluster">
+    <h5>Gruppo 2 – Comuni periferici</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 1.374</li>
+      <li><strong>Altitudine media:</strong> 2,79 (montana)</li>
+      <li><strong>Tempo al primo hub:</strong> 34 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~147.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 9</li>
+      <li><strong>Prezzo medio:</strong> 631 €</li>
+      <li><strong>Crescita dal 1992:</strong> −23%</li>
+      <li><strong>Delta frizione:</strong> 6,6</li>
+    </ul>
+    <p>Territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.</p>
+  </div>
 
- 
-##### Gruppo 4. Aree metropolitane accessibili
-- **Numero di comuni:** 524
-- **Altitudine media:** pianura (1.26)
-- **Tempo al primo hub:** 12 min
-- **Popolazione raggiungibile:** ~1,79 milioni di abitanti
-- **Strutture ricettive:** 6
-- **Prezzo medio:** 1.191 €
-- **Crescita dal 1992:** +29%
-- **Delta frizione:** 8.3
+  <div class="card-cluster">
+    <h5>Gruppo 3 – Poli urbani</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 2</li>
+      <li><strong>Altitudine media:</strong> 1,00 (pianura)</li>
+      <li><strong>Tempo al primo hub:</strong> 31 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~222.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 4.649</li>
+      <li><strong>Prezzo medio:</strong> 2.218 €</li>
+      <li><strong>Crescita dal 1992:</strong> +10%</li>
+      <li><strong>Delta frizione:</strong> 2,7 (rete molto efficiente)</li>
+    </ul>
+    <p>I principali centri urbani, caratterizzati dalla maggiore concentrazione di strutture ricettive, prezzi immobiliari elevati e buona qualità della rete stradale. La crescita demografica positiva conferma la loro attrattività.</p>
+  </div>
 
-Questo gruppo ha la maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.
+  <div class="card-cluster">
+    <h5>Gruppo 4 – Comuni periurbani in crescita</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 524</li>
+      <li><strong>Altitudine media:</strong> 1,26 (pianura)</li>
+      <li><strong>Tempo al primo hub:</strong> 12 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~1,79 milioni di abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 6</li>
+      <li><strong>Prezzo medio:</strong> 1.191 €</li>
+      <li><strong>Crescita dal 1992:</strong> +29%</li>
+      <li><strong>Delta frizione:</strong> 8,3</li>
+    </ul>
+    <p>La maggiore accessibilità potenziale grazie alla vicinanza ai grandi poli urbani. Nonostante la scarsa presenza di strutture ricettive, mostra una forte crescita demografica, probabilmente legata a fenomeni di suburbanizzazione.</p>
+  </div>
 
- 
-##### Gruppo 5. Aree in espansione
-- **Numero di comuni:** 891
-- **Altitudine media:** collina (2.02)
-- **Tempo al primo hub:** 18 min
-- **Popolazione raggiungibile:** ~520.000 abitanti
-- **Strutture ricettive:** 18
-- **Prezzo medio:** 1.214 €
-- **Crescita dal 1992:** +32%
-- **Delta frizione:** 8.4
+  <div class="card-cluster">
+    <h5>Gruppo 5 – Comuni in espansione</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 891</li>
+      <li><strong>Altitudine media:</strong> 2,02 (collina)</li>
+      <li><strong>Tempo al primo hub:</strong> 18 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~520.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 18</li>
+      <li><strong>Prezzo medio:</strong> 1.214 €</li>
+      <li><strong>Crescita dal 1992:</strong> +32%</li>
+      <li><strong>Delta frizione:</strong> 8,4</li>
+    </ul>
+    <p>Territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.</p>
+  </div>
 
-Comprende territori collinari con buona accessibilità e forte crescita demografica. Il mercato immobiliare è intermedio e la presenza turistica è moderata, indicando aree in fase di sviluppo residenziale e turistico.
+  <div class="card-cluster">
+    <h5>Gruppo 6 – Comuni isolati in declino</h5>
+    <ul>
+      <li><strong>Numero di comuni:</strong> 607</li>
+      <li><strong>Altitudine media:</strong> 3,48 (montana)</li>
+      <li><strong>Tempo al primo hub:</strong> 48 min</li>
+      <li><strong>Popolazione raggiungibile:</strong> ~82.000 abitanti</li>
+      <li><strong>Strutture ricettive:</strong> 17</li>
+      <li><strong>Prezzo medio:</strong> 858 €</li>
+      <li><strong>Crescita dal 1992:</strong> −16%</li>
+      <li><strong>Delta frizione:</strong> 14,8 (rete stradale più penalizzante)</li>
+    </ul>
+    <p>Le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.</p>
+  </div>
 
-
-##### Gruppo 6. Aree montane isolate
-- **Numero di comuni:** 607
-- **Altitudine media:** montana (3.48)
-- **Tempo al primo hub:** 48 min
-- **Popolazione raggiungibile:** ~82.000 abitanti
-- **Strutture ricettive:** 17
-- **Prezzo medio:** 858 €
-- **Crescita dal 1992:** -16%
-- **Delta frizione:** 14.8 (rete stradale più penalizzante)
-
-Rappresenta le aree più isolate del campione, con la minore accessibilità e la peggiore qualità della rete stradale. Nonostante una certa presenza di strutture ricettive, i prezzi immobiliari rimangono contenuti e la dinamica demografica è negativa.
+</div>
 
 ---
 #### Cosa spiega lo spopolamento nei piccoli comuni?
-Random Forest e Features Importance (variabile target: spopolamento SI/NO)
  
 
 <div id="feature_imp_ginevra_it"></div>
@@ -307,90 +372,116 @@ Random Forest e Features Importance (variabile target: spopolamento SI/NO)
 ### I comuni alpini: profili a confronto
 Clustering (K-means) sui comuni Alpini  + Modello classificatorio (Random Forest)
 
-<div id="clustering_montani_ginivra"></div>
+<style>
+  .grid-cluster {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .card-cluster {
+    background: #faf8f2;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .card-cluster h5 {
+    color: #6b5a3f;  /* tono tierra, coherente con tu paleta */
+    margin-top: 0;
+    border-bottom: 2px solid #6b5a3f;
+    padding-bottom: 8px;
+  }
+  .card-cluster ul {
+    padding-left: 18px;
+    margin-bottom: 12px;
+  }
+  .card-cluster p {
+    font-style: italic;
+    font-size: 0.95em;
+    color: #555;
+  }
+</style>
 
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<div class="grid-cluster">
 
-<script>
-  vegaEmbed('#clustering_montani_ginivra', '{{ site.baseurl }}/assets/charts/clustering_montani.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
+  <div class="card-cluster">
+    <h5>Gruppo 0 – Piccole località montane periferiche</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 164</li>
+      <li><strong>Accessibilità:</strong> ridotta (41 min dal primo hub)</li>
+      <li><strong>Strutture ricettive:</strong> poche (14 in media)</li>
+      <li><strong>Prezzi immobiliari:</strong> contenuti</li>
+      <li><strong>Demografia:</strong> calo marcato (−17% dal 1992)</li>
+      <li><strong>Abitazioni non occupate:</strong> elevata</li>
+    </ul>
+    <p>Piccole destinazioni montane periferiche, con offerta turistica limitata e progressivo indebolimento demografico.</p>
+  </div>
 
-#### Interpretazione dei cluster
+  <div class="card-cluster">
+    <h5>Gruppo 1 – Montagna accessibile e residenziale</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 94</li>
+      <li><strong>Accessibilità:</strong> buona (21 min dal primo hub)</li>
+      <li><strong>Prezzi immobiliari:</strong> medio-alto</li>
+      <li><strong>Demografia:</strong> crescita positiva (+16%)</li>
+      <li><strong>Abitazioni non occupate:</strong> bassa</li>
+    </ul>
+    <p>Comuni facilmente raggiungibili con funzione residenziale e turistica, che beneficiano della vicinanza ai centri urbani.</p>
+  </div>
 
-##### Gruppo 0. – Piccole località montane periferiche
+  <div class="card-cluster">
+    <h5>Gruppo 2 – Montagna isolata con criticità infrastrutturali</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 126</li>
+      <li><strong>Accessibilità:</strong> molto bassa (53 min dal primo hub)</li>
+      <li><strong>Delta frizione:</strong> elevato</li>
+      <li><strong>Prezzi immobiliari:</strong> relativamente bassi</li>
+      <li><strong>Demografia:</strong> calo moderato</li>
+      <li><strong>Turismo:</strong> limitato</li>
+    </ul>
+    <p>Territori montani isolati, penalizzati dalle condizioni infrastrutturali e dalla distanza dai poli principali.</p>
+  </div>
 
-- **Numero di comuni:** 164
-- **Presenza di impianti:** limitata.
-- **Accessibilità** ridotta (41 min dal primo hub e meno di 100 mila abitanti raggiungibili).
-- **Strutture ricettive:** Poche (14 in media).
-- **Prezzi immobiliari** contenuti.
-- **Demografia:**  marcato Calo (-17% dal 1992).
-- **Quota di abitazioni non occupate:** Elevata.
+  <div class="card-cluster">
+    <h5>Gruppo 3 – Località montane in trasformazione</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 205</li>
+      <li><strong>Accessibilità:</strong> intermedia</li>
+      <li><strong>Strutture ricettive:</strong> ridotta</li>
+      <li><strong>Prezzi immobiliari:</strong> contenuti</li>
+      <li><strong>Demografia:</strong> sostanzialmente stabile</li>
+      <li><strong>Perdite di innevamento:</strong> bassa</li>
+    </ul>
+    <p>Località montane meno elevate, dove la diminuzione dell'innevamento potrebbe incidere sulla competitività del turismo invernale.</p>
+  </div>
 
-Si tratta di piccole destinazioni montane periferiche, con un'offerta turistica limitata e un progressivo indebolimento demografico.
+  <div class="card-cluster">
+    <h5>Gruppo 4 – Destinazioni sciistiche di pregio</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 37</li>
+      <li><strong>Accessibilità:</strong> limitata, compensata dall'attrattività</li>
+      <li><strong>Quota altimetrica:</strong> molto elevata</li>
+      <li><strong>Strutture ricettive:</strong> molto sviluppata (75 in media)</li>
+      <li><strong>Prezzi immobiliari:</strong> elevati</li>
+      <li><strong>Perdite di innevamento:</strong> relativamente contenute</li>
+    </ul>
+    <p>Principali destinazioni sciistiche, con mercato immobiliare di valore elevato e offerta turistica consolidata.</p>
+  </div>
 
+  <div class="card-cluster">
+    <h5>Gruppo 5 – Grandi poli dello sci</h5>
+    <ul>
+      <li><strong>Comuni:</strong> 11</li>
+      <li><strong>Accessibilità:</strong> comuni molto isolati</li>
+      <li><strong>Strutture ricettive:</strong> oltre 440 in media</li>
+      <li><strong>Prezzi immobiliari:</strong> molto elevati</li>
+      <li><strong>Presenza seconde case:</strong> elevata</li>
+    </ul>
+    <p>Grandi comprensori sciistici nazionali. Nonostante l'isolamento, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva.</p>
+  </div>
 
-##### Gruppo 1. – Montagna accessibile e residenziale
+</div>
 
-- **Numero di comuni:** 94
-- **Presenza di impianti:** contenuta
-- **Accessibilità** buona (21 min dal primo hub).
-- **Prezzi immobiliari** medio-alto.
-- **Demografia:** crescita positiva (+16%)
-- **Quota di abitazioni non occupate:** Bassa
-
-Comprende comuni facilmente raggiungibili che sembrano svolgere una funzione sia residenziale sia turistica, beneficiando della vicinanza ai principali centri urbani.
-
- 
-##### Gruppo 2. – Montagna isolata con criticità infrastrutturali
-
-- **Numero di comuni:** 126
-- **Accessibilità:** molto bassa (53 min dal primo hub).
-- **Delta frizione:** elevato
-- **Prezzi immobiliari** relativamente bassi.
-- **Demografia:** calo moderato
-- **Turismo:** limitato
-
-Sono territori montani isolati, penalizzati soprattutto dalle condizioni infrastrutturali e dalla distanza dai principali poli.
-
-##### Gruppo 3. – Località montane in trasformazione
-
-- **Numero di comuni:** 205
-- **Accessibilità:** intermedia
-- **Strutture ricettive:** ridotta
-- **Prezzi immobiliari** contenuti
-- **Demografia:** sostanzialmente stabile.
-- **Perdite di innevamento:** bassa
-
-Rappresentano località montane meno elevate, nelle quali la diminuzione dell'innevamento potrebbe incidere maggiormente sulla competitività del turismo invernale.
-
-##### Gruppo 4. – Destinazioni sciistiche di pregio
-
-- **Numero di comuni:** 37
-- **Accessibilità:** limitata ma compensata dall'attrattività turistica.
-- **Quota altimetrica:** molto elevata
-- **Strutture ricettive:** molto sviluppata (75 strutture in media).
-- **Prezzi immobiliari** elevati
-- **Presenza impianti:** elevata
-- **Perdite di innevamento:** relativamente contenute.
-- **Quota altimetrica:**  molto elevata
-
-Sono le principali destinazioni sciistiche, caratterizzate da un mercato immobiliare di valore elevato e da un'offerta turistica consolidata.
-
-##### Gruppo 5. – Grandi poli dello sci
-
-- **Numero di comuni:** 11
-- **Accessibilità:** comuni molto isolati
-- **Strutture ricettive:** molto alta (Oltre 440 strutture ricettive in media.).
-- **Prezzi immobiliari** molto elevati
-- **Presenza impianti:** massima
-- **Perdite di innevamento:** relativamente contenute.
-- **Presenza  seconde case:** Elevata
-
-Comprende i grandi comprensori sciistici nazionali. Nonostante l'isolamento geografico, l'elevata specializzazione turistica sostiene un'importante offerta ricettiva e valori immobiliari elevati.
 
 ---
 
@@ -400,7 +491,7 @@ plot feature importance SHAP
 ---
 
 #### Cosa spiega lo spopolamento nei comuni alpini?
-Random Forest e Features Importance su comuni Alpini (variabile target: spopolamento SI/NO)
+
 
 <div id="feature_imp_ginevra_montani"></div>
 
