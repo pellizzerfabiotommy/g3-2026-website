@@ -32,60 +32,37 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 
 
 ---
+
 <style>
   .mapas-comparacion {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 24px;
     align-items: start;
     margin: 20px 0;
   }
   .mapa-container {
     width: 100%;
-    max-width: 500px;
-  }
-  .mapa-container p {
-    font-size: 0.9em;
-    line-height: 1.5;
-    margin-bottom: 12px;
-    color: #444;
+    max-width: 550px;
   }
 </style>
 <div class="mapas-comparacion">
-<div class="mapa-container">
-<p>La mappa 1 mostra il diverso grado di spopolamento e crescita (il delta tra inizio della serie storica e fine) dei comuni italiani di cui abbiamo ricavato le metriche di accessibilità (accessibilità alpha2 è visibile nel tooltip, insieme a fascia altimetrica, delta demografico e vocazione turistica). Possiamo osservare differenze interessanti: ad esempio, le aree montane del Friuli-Venezia Giulia mostrano alta vocazione turistica, accessibilità tendenzialmente bassa e forte spopolamento, mentre nelle vicine aree montane del Trentino-Alto Adige (che includono destinazioni molto note e ricercate) l'alta vocazione turistica si accompagna ad accessibilità più alta, e i comuni presentano trend positivi.</p>
-<div id="mappaSpopolamento"></div>
+  <div id="mappaSpopolamento" class="mapa-container"></div>
+  <div id="mappaAccessiblita" class="mapa-container"></div>
+  <div id="mappa_interattiva" class="mapa-container"></div>
 </div>
-<div class="mapa-container">
-<p>La mappa 2 visualizza l'accessibilità (nel tooltip: delta frizione, delta demografico, fascia altimetrica media). Possiamo osservare un "corridoio" di alta accessibilità nel Trentino-Alto Adige. In generale, la mappa conferma quanto osservato nelle analisi riguardo alla distribuzione dell'accessibilità nel territorio italiano (differenze tra nord, centro e sud; decadimento dell'accessibilità all'aumentare dell'altitudine, soprattutto al nord; situazioni dove il ritardo infrastrutturale (delta frizione) correla con poca accessibilità).</p>
-<div id="mappaAccessiblita"></div>
-</div>
-<div class="mapa-container">
-<p>La mappa 3 invece permette di selezionare diversi intervalli di altitudine e di spopolamento, evidenziando i comuni montani (score di altezza media = 3, circa 800 mt). Questo consente di individuare in quali aree lo spopolamento si sovrappone (o si discosta) dall'altitudine, testando diversi range e verificando (nel tooltip) la presenza di impianti e score di accessibilità.</p>
-<div id="mappa_interattiva"></div>
-</div>
-</div>
-
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 <script>
 vegaEmbed('#mappaSpopolamento', '{{ site.baseurl }}/assets/charts/pop_spop.json')
     .catch(err => console.error('Errore rendering grafico:', err));
-vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
 vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-<div id="jitter_acc"></div>
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-<script>
-vegaEmbed('#jitter_acc', '{{ site.baseurl }}/assets/charts/jitter_acc.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>  
 ---
 
 ### Tre Italie: territorio, rischio e mercato immobiliare a confronto
@@ -228,7 +205,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-#### Interpretazione dei cluster  
+#### Interpretazione dei gruppi  
 
 
 <style>
@@ -519,11 +496,6 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 </div>
 
-
----
-
-`Clustering sui comuni Alpini su features (LEO??)` 
-plot feature importance SHAP
 
 ---
 
