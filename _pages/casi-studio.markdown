@@ -14,21 +14,16 @@ Nella sezione **Risultati** abbiamo individuato, attraverso tecniche di machine 
 
 ### Area o nome comune
 
+<div id="p1"></div>
 
- ---
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-
-
-
-
-
-
-
-
-
- ---
-
-
+<script>
+  vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 
  ---

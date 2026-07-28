@@ -121,18 +121,6 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 
 
-<div id="p1"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
-
 <div id="p2"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -179,16 +167,6 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 </script>
 
 
-<div id="p6"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#p6', '{{ site.baseurl }}/assets/charts/6_metriche_clusterK8_Leo.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
 ---  
 
 ### I piccoli comuni d'Italia: profili a confronto
