@@ -34,9 +34,8 @@ github_repo:
 
 markdown: kramdown
 
-baseurl: "/g3-2026-website-main"
-#baseurl: ""
-url: "" # se pubblichi su GitHub Pages, inserisci qui "https://TUO_USERNAME.github.io"
+baseurl: "/g3-2026-website"
+url: "https://pellizzerfabiotommy.github.io"
 
 #################################
 #    Configurazione navigazione #
