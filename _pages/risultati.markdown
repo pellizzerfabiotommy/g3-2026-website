@@ -260,9 +260,9 @@ Random Forest e Features Importance (variabile target: spopolamento SI/NO)
 </script>
 
 
-#### Valutazione e Prestazioni del Modello
+#### Prestazioni del Modello
 
-**Accuratezza Globale (Accuracy):** 72%<br>
+**Accuracy:** 72%<br>
 **Precision:** classe 0 - 75%; classe 1 - 68%<br>
 **Recall:** classe 0 - 74%; classe 1 - 70%<br>
 
@@ -377,9 +377,9 @@ Random Forest e Features Importance su comuni Alpini (variabile target: spopolam
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-#### Valutazione e Prestazioni del Modello
+#### Prestazioni del Modello
 
-**Accuratezza Globale (Accuracy):** 76%<br>
+**Accuracy:** 76%<br>
 **Precision:** classe 0 - 76%; classe 1 - 76%<br>
 **Recall:** classe 0 - 64%; classe 1 - 85%<br>
 
