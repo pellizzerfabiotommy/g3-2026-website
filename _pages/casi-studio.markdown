@@ -14,14 +14,28 @@ Nella sezione **Risultati** abbiamo individuato, attraverso tecniche di machine 
 
 ### Area o nome comune
 
+<style>
+  .grafico-scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    padding-bottom: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .grafico-scroll-container > div {
+    display: inline-block;
+  }
+</style>
+
+<div class="grafico-scroll-container">
 <div id="p1"></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
 <script>
-  vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
+vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
