@@ -128,47 +128,35 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
 
-
-<div id="1"></div>
-
+<!-- 1. Caricamento unico delle librerie Vega -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
+<!-- 2. Contenitori div per i grafici -->
+<div id="chart1" style="width: 100%; margin-bottom: 30px;"></div>
+<div id="chart2" style="width: 100%; margin-bottom: 30px;"></div>
+<div id="chart3" style="width: 100%; margin-bottom: 30px;"></div>
+
+<!-- 3. Script unico di rendering -->
 <script>
-  vegaEmbed('#1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
+  const baseUrl = "{{ site.baseurl }}";
+
+  // Grafico 1
+  vegaEmbed('#chart1', baseUrl + '/assets/charts/1_confronto_Andalo_Cavedago.json')
+    .catch(err => console.error('Errore rendering Grafico 1:', err));
+
+  // Grafico 2
+  vegaEmbed('#chart2', baseUrl + '/assets/charts/2_mappa_clusterk8_Leo.json')
+    .catch(err => console.error('Errore rendering Grafico 2:', err));
+
+  // Grafico 3
+  vegaEmbed('#chart3', baseUrl + '/assets/charts/3_demografia_vecchiaia_natalita_per_cluster.json')
+    .catch(err => console.error('Errore rendering Grafico 3:', err));
 </script>
 
+ 
 
-<div id="2"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#2', '{{ site.baseurl }}/assets/charts/2_mappa_clusterk8_Leo.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
-<div id="3"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#3', '{{ site.baseurl }}/assets/charts/3_demografia_vecchiaia_natalita_per_cluster.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
-
-
-
-#### Interpretazione dei cluster
-
- PARTE LEO 
 
 
 ---  
