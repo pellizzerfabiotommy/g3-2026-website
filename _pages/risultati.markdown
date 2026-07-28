@@ -163,7 +163,40 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
+<div id="p4"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p4', '{{ site.baseurl }}/assets/charts/4_Indicatori_clusterk8_italia_leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+<div id="p5"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p5', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+
+<div id="p6"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p6', '{{ site.baseurl }}/assets/charts/6_metriche_clusterK8_Leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 ---  
 
 ### I piccoli comuni d'Italia: profili a confronto
