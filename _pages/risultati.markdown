@@ -165,41 +165,6 @@ Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati tr
 
 
 
-<div id="4"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#4', '{{ site.baseurl }}/assets/charts/4_Indicatori_clusterk8_italia_leo.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
-
-<div id="5"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#5', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
-
-<div id="6"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-
-<script>
-  vegaEmbed('#6', '{{ site.baseurl }}/assets/charts/6_metriche_clusterK8_Leo.json')
-    .catch(err => console.error('Errore rendering grafico:', err));
-</script>
-
 
 #### Interpretazione dei cluster
 
