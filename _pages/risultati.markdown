@@ -128,31 +128,53 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
- 
-<!-- 1. CARICAMENTO LIBRERIE (UNA SOLA VOLTA) -->
+
+!-- 1. CARICAMENTO LIBRERIE (FUORI DA LIQUID) -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <!-- 2. CONTENITORI PER I GRAFICI -->
-<div id="chart1" style="width: 100%; min-height: 300px;"></div>
-<div id="chart2" style="width: 100%; min-height: 400px;"></div>
+<div id="chart1" style="width: 100%; margin-bottom: 40px;"></div>
+<div id="chart2" style="width: 100%; margin-bottom: 40px;"></div>
+<div id="chart3" style="width: 100%; margin-bottom: 40px;"></div>
+<div id="chart4" style="width: 100%; margin-bottom: 40px;"></div>
+<div id="chart5" style="width: 100%; margin-bottom: 40px;"></div>
+<div id="chart6" style="width: 100%; margin-bottom: 40px;"></div>
 
-<!-- 3. SCRIPT DI RENDERING -->
+<!-- 3. SCRIPT PROTEGGI-JEKYLL CON RAW -->
+{% raw %}
 <script>
-  const baseUrl = "{{ site.baseurl }}";
+  // Recuperiamo il baseurl in modo sicuro tramite Javascript
+  const baseUrl = window.location.origin + window.location.pathname.split('/')[1] ? '/' + window.location.pathname.split('/')[1] : '';
 
-  // Grafico 1 (Leggero - 5 KB)
-  vegaEmbed('#chart1', baseUrl + '/assets/charts/1_confronto_Andalo_Cavedago.json')
-    .then(() => console.log('Grafico 1 OK'))
-    .catch(err => console.error('Errore Grafico 1:', err));
+  // Array dei grafici
+  const charts = [
+    { id: '#chart1', file: '1_confronto_Andalo_Cavedago.json' },
+    { id: '#chart2', file: '2_mappa_clusterk8_Leo.json' },
+    { id: '#chart3', file: '3_demografia_vecchiaia_natalita_per_cluster.json' },
+    { id: '#chart4', file: '4_Indicatori_clusterk8_italia_leo.json' },
+    { id: '#chart5', file: '5_Shap_clusterk8_italia_leo.json' },
+    { id: '#chart6', file: '6_metriche_clusterK8_Leo.json' }
+  ];
 
-  // Grafico 2 (Mappa Pesante - 36 MB)
-  vegaEmbed('#chart2', baseUrl + '/assets/charts/2_mappa_clusterk8_Leo.json')
-    .then(() => console.log('Grafico 2 OK'))
-    .catch(err => console.error('Errore Grafico 2:', err));
+  // Eseguiamo il rendering
+  charts.forEach(c => {
+    // Prova percorso standard
+    const jsonPath = '/assets/charts/' + c.file;
+    
+    vegaEmbed(c.id, jsonPath)
+      .then(() => console.log('✅ Caricato:', c.file))
+      .catch(err => {
+        console.warn('⚠️ Fallito ' + jsonPath + ', provo percorso relativo...');
+        // Fallback percorso relativo
+        vegaEmbed(c.id, 'assets/charts/' + c.file)
+          .then(() => console.log('✅ Caricato con fallback:', c.file))
+          .catch(e => console.error('❌ ERRORE TOTALE su ' + c.file, e));
+      });
+  });
 </script>
-
+{% endraw %}
 
 
 ---  
