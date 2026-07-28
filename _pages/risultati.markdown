@@ -12,7 +12,7 @@ L'applicazione di tecniche di data analysis e clustering ha permesso di superare
 
 ### IL PANORAMA NAZIONALE 
 
-Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia, accessibilità, rischio idrogeologico e turismo. Rappresentano un momento importante della nostra analisi, in cui abbiamo cercato di rispondere a domande quali:
+Le seguenti mappe e grafici sono state generate utilizzando i dati raccolti sul demografia, accessibilità, rischio idrogeologico e turismo. Rappresentano un momento importante della nostra analisi, in cui abbiamo cercato di rispondere a domande quali:
 - Come è distribuito lo spopolamento nel territorio italiano, e quali differenze si evidenziano tra aree diverse? 
 - Come si relaziona lo spopolamento all'accessibilità? Il decadimento dell'accessibilità in funzione dell'altitudine ha lo stesso significato (e distribuzione) in diverse aree del territorio italiano?
 - Dove si evidenziano scostamenti tra delta negativi e altitudine, ad esempio, zone in cui lo spopolamento non correla all'altitudine? E quali fattori indipendenti possiamo rilevare (es. rischio alluvioni, problemi infrastrutturali)?
@@ -24,11 +24,11 @@ Le seguenti mappe sono state generate utilizzando i dati raccolti sul demografia
 **Accessibilità Alpha 2** (raggio 45 min):
 Somma degli score di popolazione assegnati, per ciascun comune di origine, a tutte le destinazioni raggiungibili entro 45 minuti.
 (Score dest. = Popolazione Destinazione / Tempo Effettivo²) 
-Misura l'attrattività e l'accessibilità potenziale di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza.  
+Misura la centralità di un comune in base alla popolazione raggiungibile nei tempi reali di percorrenza.  
 
 **Delta Frizione Medio** (raggio 80 min):
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
-Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. 
+Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. La scelta di questo raggio dipende dal focus del progetto: si è scelto di misurare il ritardo infrastrutturale nei tratti che collegano i comuni montani ad altre aree locali e centri di rilievo, indipendentemente dal contesto più ampio (provinciale e regionale).
 
 ---
 <style>
@@ -68,6 +68,18 @@ vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamen
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>  
 
+
+
+<div id="jitter_acc"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#jitter_acc', '{{ site.baseurl }}/assets/charts/jitter_acc.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 ---
 
