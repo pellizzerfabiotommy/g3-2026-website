@@ -30,6 +30,7 @@ Misura la centralità di un comune in base alla popolazione raggiungibile nei te
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. La scelta di questo raggio dipende dal focus del progetto: si è scelto di misurare il ritardo infrastrutturale nei tratti che collegano i comuni montani ad altre aree locali e centri di rilievo, indipendentemente dal contesto più ampio (provinciale e regionale).
 
+
 ---
 <style>
   .mapas-comparacion {
@@ -82,6 +83,19 @@ vegaEmbed('#mappaAccessiblita', '{{ site.baseurl }}/assets/charts/mappa_access.j
     .catch(err => console.error('Errore rendering grafico:', err));
 
 vegaEmbed('#mappa_interattiva', '{{ site.baseurl }}/assets/charts/map_spopolamento_interact.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>  
+
+
+
+<div id="jitter_acc"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#jitter_acc', '{{ site.baseurl }}/assets/charts/jitter_acc.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
@@ -143,50 +157,74 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 
 
-<div id="mappa_leo_cluster"></div>
+<div id="p1"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#mappa_leo_cluster', '{{ site.baseurl }}/assets/charts/2_mappa_clusterk8_Leo.json')
+  vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-<div id="indicatori_leo_cluster"></div>
+
+<div id="p2"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#indicatori_leo_cluster', '{{ site.baseurl }}/assets/charts/4_Indicatori_clusterk8_italia_leo.json')
+  vegaEmbed('#p2', '{{ site.baseurl }}/assets/charts/2_mappa_clusterk8_Leo.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
-
-
-<div id="shap_leo_cluster"></div>
+<div id="p3"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <script>
-  vegaEmbed('#shap_leo_cluster', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
+  vegaEmbed('#p3', '{{ site.baseurl }}/assets/charts/3_demografia_vecchiaia_natalita_per_cluster.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+<div id="p4"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p4', '{{ site.baseurl }}/assets/charts/4_Indicatori_clusterk8_italia_leo.json')
     .catch(err => console.error('Errore rendering grafico:', err));
 </script>
 
 
+<div id="p5"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p5', '{{ site.baseurl }}/assets/charts/5_Shap_clusterk8_italia_leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 
+<div id="p6"></div>
 
-#### Interpretazione dei cluster
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
- PARTE LEO 
-
-
+<script>
+  vegaEmbed('#p6', '{{ site.baseurl }}/assets/charts/6_metriche_clusterK8_Leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 ---  
 
 ### I piccoli comuni d'Italia: profili a confronto
