@@ -12,8 +12,6 @@ Nella sezione **Risultati** abbiamo individuato, attraverso tecniche di machine 
 
 ## Analisi Territoriali
 
-### Area o nome comune
-
 <style>
   .grafico-scroll-container {
     overflow-x: auto;
