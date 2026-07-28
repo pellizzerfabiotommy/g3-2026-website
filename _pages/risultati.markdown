@@ -30,6 +30,7 @@ Misura la centralità di un comune in base alla popolazione raggiungibile nei te
 Differenza tra il tempo effettivo di viaggio (grafo TomTom) e il tempo ideale (senza ritardi dovuti a traffico, meteo o chiusura strade). 
 Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comprese in un raggio di 80 minuti. La scelta di questo raggio dipende dal focus del progetto: si è scelto di misurare il ritardo infrastrutturale nei tratti che collegano i comuni montani ad altre aree locali e centri di rilievo, indipendentemente dal contesto più ampio (provinciale e regionale).
 
+
 ---
 <style>
   .mapas-comparacion {
@@ -127,35 +128,30 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
-
-<!-- 1. Caricamento unico delle librerie Vega -->
+ 
+<!-- 1. CARICAMENTO LIBRERIE (UNA SOLA VOLTA) -->
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<!-- 2. Contenitori div per i grafici -->
-<div id="chart1" style="width: 100%; margin-bottom: 30px;"></div>
-<div id="chart2" style="width: 100%; margin-bottom: 30px;"></div>
-<div id="chart3" style="width: 100%; margin-bottom: 30px;"></div>
+<!-- 2. CONTENITORI PER I GRAFICI -->
+<div id="chart1" style="width: 100%; min-height: 300px;"></div>
+<div id="chart2" style="width: 100%; min-height: 400px;"></div>
 
-<!-- 3. Script unico di rendering -->
+<!-- 3. SCRIPT DI RENDERING -->
 <script>
   const baseUrl = "{{ site.baseurl }}";
 
-  // Grafico 1
+  // Grafico 1 (Leggero - 5 KB)
   vegaEmbed('#chart1', baseUrl + '/assets/charts/1_confronto_Andalo_Cavedago.json')
-    .catch(err => console.error('Errore rendering Grafico 1:', err));
+    .then(() => console.log('Grafico 1 OK'))
+    .catch(err => console.error('Errore Grafico 1:', err));
 
-  // Grafico 2
+  // Grafico 2 (Mappa Pesante - 36 MB)
   vegaEmbed('#chart2', baseUrl + '/assets/charts/2_mappa_clusterk8_Leo.json')
-    .catch(err => console.error('Errore rendering Grafico 2:', err));
-
-  // Grafico 3
-  vegaEmbed('#chart3', baseUrl + '/assets/charts/3_demografia_vecchiaia_natalita_per_cluster.json')
-    .catch(err => console.error('Errore rendering Grafico 3:', err));
+    .then(() => console.log('Grafico 2 OK'))
+    .catch(err => console.error('Errore Grafico 2:', err));
 </script>
-
- 
 
 
 
