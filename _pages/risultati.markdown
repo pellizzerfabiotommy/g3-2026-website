@@ -129,52 +129,39 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 ### Un ritratto dell'Italia intera: tutti i comuni, 2023-2025
 Clustering (aggiungi algoritmo) nazionale su tutti i comuni italiani (su dati triennio 2023-2025)
 
-!-- 1. CARICAMENTO LIBRERIE (FUORI DA LIQUID) -->
+<div id="p1"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<!-- 2. CONTENITORI PER I GRAFICI -->
-<div id="chart1" style="width: 100%; margin-bottom: 40px;"></div>
-<div id="chart2" style="width: 100%; margin-bottom: 40px;"></div>
-<div id="chart3" style="width: 100%; margin-bottom: 40px;"></div>
-<div id="chart4" style="width: 100%; margin-bottom: 40px;"></div>
-<div id="chart5" style="width: 100%; margin-bottom: 40px;"></div>
-<div id="chart6" style="width: 100%; margin-bottom: 40px;"></div>
-
-<!-- 3. SCRIPT PROTEGGI-JEKYLL CON RAW -->
-{% raw %}
 <script>
-  // Recuperiamo il baseurl in modo sicuro tramite Javascript
-  const baseUrl = window.location.origin + window.location.pathname.split('/')[1] ? '/' + window.location.pathname.split('/')[1] : '';
-
-  // Array dei grafici
-  const charts = [
-    { id: '#chart1', file: '1_confronto_Andalo_Cavedago.json' },
-    { id: '#chart2', file: '2_mappa_clusterk8_Leo.json' },
-    { id: '#chart3', file: '3_demografia_vecchiaia_natalita_per_cluster.json' },
-    { id: '#chart4', file: '4_Indicatori_clusterk8_italia_leo.json' },
-    { id: '#chart5', file: '5_Shap_clusterk8_italia_leo.json' },
-    { id: '#chart6', file: '6_metriche_clusterK8_Leo.json' }
-  ];
-
-  // Eseguiamo il rendering
-  charts.forEach(c => {
-    // Prova percorso standard
-    const jsonPath = '/assets/charts/' + c.file;
-    
-    vegaEmbed(c.id, jsonPath)
-      .then(() => console.log('✅ Caricato:', c.file))
-      .catch(err => {
-        console.warn('⚠️ Fallito ' + jsonPath + ', provo percorso relativo...');
-        // Fallback percorso relativo
-        vegaEmbed(c.id, 'assets/charts/' + c.file)
-          .then(() => console.log('✅ Caricato con fallback:', c.file))
-          .catch(e => console.error('❌ ERRORE TOTALE su ' + c.file, e));
-      });
-  });
+  vegaEmbed('#p1', '{{ site.baseurl }}/assets/charts/1_confronto_Andalo_Cavedago.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
 </script>
-{% endraw %}
+
+
+<div id="p2"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p2', '{{ site.baseurl }}/assets/charts/2_mappa_clusterk8_Leo.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
+
+<div id="p3"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+<script>
+  vegaEmbed('#p3', '{{ site.baseurl }}/assets/charts/3_demografia_vecchiaia_natalita_per_cluster.json')
+    .catch(err => console.error('Errore rendering grafico:', err));
+</script>
 
 
 ---  
