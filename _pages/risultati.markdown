@@ -32,6 +32,7 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 
 
 ---
+La mappa 1 (Distribuzione Delta (s)popolamento nei Comuni Italiani) mostra il diverso grado di spopolamento e crescita (il delta tra inizio della serie storica e fine, ..) dei comuni italiani di cui abbiamo ricavato le metriche di accessibilità (accessibilità alpha2 è visibile nel tooltip, insieme a fascia altimetrica, delta demografico e vocazione turistica). Possiamo osservare differenze interessanti: ad esempio, le aree montane del Friuli-Venezia-Giulia mostrano alta vocazione turistica, accessibilità tendenzialmente bassa e forte spopolamento, mentre nelle vicine aree montane del Trentino-Alto-Adige (che includono destinazioni molto note e ricercate) l'alta vocazione turistica si accompagna ad accessibilità più alta, e i comuni presentano trend positivi. 
 
 <style>
   .mapas-comparacion {
@@ -48,7 +49,10 @@ Esprime il *ritardo infrastrutturale* medio per raggiungere le destinazioni comp
 </style>
 <div class="mapas-comparacion">
   <div id="mappaSpopolamento" class="mapa-container"></div>
+  Nella mappa 2 (Distribuzione Accessibilità (Alpha =2, range <= 45)) visualizziamo l'accessibilità (nel tooltip: delta frizione, delta demografico, fascia altimetrica media).  Possiamo osservare un "corridoio" di alta accessibilità nel Trentino-Alto-Adige. In generale, la mappa conferma quanto osservato nelle analisi riguardo alla distribuzione dell'accessibilità nel territorio italiano (differenze tra nord, centro e sud; decadimento dell'accessibilità all'aumentare dell'altitudine, soprattutto al nord; situazioni dove il ritardo infrastrutturale (delta frizione) correla con poca accessibilità).      
   <div id="mappaAccessiblita" class="mapa-container"></div>
+  Nella mappa 3 (Rapporto Spopolamento vs Catene Montuose) invece permette di selezionare diversi intervalli di altitudine e di spopolamento, evidenziando i comuni montani (score di altezza media=3, circa 800 mt). Questo consente di individuare in quali aree lo spopolamento si sovrappone (o si discosta) dall'altitudine, testando diversi range e verificando (nel tooltip) la presenza di impianti e score di accessibilità.
+
   <div id="mappa_interattiva" class="mapa-container"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
