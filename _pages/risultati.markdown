@@ -223,7 +223,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
 <div class="grid-cluster">
 
   <div class="card-cluster">
-    <h5>Gruppo 0 – Comuni accessibili</h5>
+    <h5>Gruppo 1 – Comuni accessibili</h5>
     <ul>
       <li><strong>Numero di comuni:</strong> 1.653</li>
       <li><strong>Altitudine media:</strong> 1,58</li>
@@ -238,7 +238,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
   </div>
 
   <div class="card-cluster">
-    <h5>Gruppo 1 – Destinazioni turistiche</h5>
+    <h5>Gruppo 2 – Destinazioni turistiche</h5>
     <ul>
       <li><strong>Numero di comuni:</strong> 144</li>
       <li><strong>Altitudine media:</strong> 2,83</li>
@@ -253,7 +253,7 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
   </div>
 
   <div class="card-cluster">
-    <h5>Gruppo 2 – Comuni periferici</h5>
+    <h5>Gruppo 3 – Comuni periferici</h5>
     <ul>
       <li><strong>Numero di comuni:</strong> 1.374</li>
       <li><strong>Altitudine media:</strong> 2,79 (montana)</li>
@@ -265,21 +265,6 @@ vegaEmbed('#descriptivo_storico', '{{ site.baseurl }}/assets/charts/descriptivo_
       <li><strong>Delta frizione:</strong> 6,6</li>
     </ul>
     <p>Territori montani periferici, con scarsa dotazione turistica e valori immobiliari bassi. La marcata diminuzione della popolazione suggerisce aree soggette a spopolamento.</p>
-  </div>
-
-  <div class="card-cluster">
-    <h5>Gruppo 3 – Poli urbani</h5>
-    <ul>
-      <li><strong>Numero di comuni:</strong> 2</li>
-      <li><strong>Altitudine media:</strong> 1,00 (pianura)</li>
-      <li><strong>Tempo al primo hub:</strong> 31 min</li>
-      <li><strong>Popolazione raggiungibile:</strong> ~222.000 abitanti</li>
-      <li><strong>Strutture ricettive:</strong> 4.649</li>
-      <li><strong>Prezzo medio:</strong> 2.218 €</li>
-      <li><strong>Crescita dal 1992:</strong> +10%</li>
-      <li><strong>Delta frizione:</strong> 2,7 (rete molto efficiente)</li>
-    </ul>
-    <p>I principali centri urbani, caratterizzati dalla maggiore concentrazione di strutture ricettive, prezzi immobiliari elevati e buona qualità della rete stradale. La crescita demografica positiva conferma la loro attrattività.</p>
   </div>
 
   <div class="card-cluster">
