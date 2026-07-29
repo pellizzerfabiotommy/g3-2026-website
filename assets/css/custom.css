@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
+:root {
+  --brand-green: #145b22;
+  --brand-sand: #dfd3b9;
+  --brand-brown: #614923;
+  --page-bg: #f6f2eb;
+  --body-text: #333333; }
+
+html,
+body {
+  background-color: var(--page-bg) !important;
+  color: var(--body-text) !important;
+  font-family: "Ubuntu", sans-serif !important;
+  line-height: 1.6; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--brand-brown) !important;
+  font-family: "Ubuntu", sans-serif !important;
+  font-weight: 700; }
+
+.navbar,
+.navbar-chulapa {
+  background-color: var(--brand-green) !important;
+  border-bottom: 5px solid var(--brand-sand) !important; }
+
+.navbar-brand,
+.navbar-chulapa .navbar-brand,
+.navbar-chulapa-fab .navbar-brand {
+  color: var(--brand-sand) !important;
+  font-weight: 700 !important; }
+
+.navbar a.nav-link,
+.navbar-chulapa .navbar-nav .nav-link,
+.navbar-chulapa .navbar-nav .nav-link.active,
+.navbar-chulapa .navbar-nav .active > .nav-link,
+.navbar-chulapa-fab .nav-link,
+.navbar-chulapa-fab .nav-link.active {
+  color: var(--brand-sand) !important; }
+
+.navbar a.nav-link:hover,
+.navbar a.nav-link:focus,
+.navbar-chulapa .navbar-nav .nav-link:hover,
+.navbar-chulapa .navbar-nav .nav-link:focus,
+.navbar-chulapa-fab .nav-link:hover,
+.navbar-chulapa-fab .nav-link:focus {
+  color: #ffffff !important; }
+
+.navbar-chulapa-fab-background,
+.navbar-chulapa-fab-nav {
+  background-color: var(--brand-green) !important; }
+
+.navbar-chulapa-fab .navbar-toggler {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-sand) !important; }
+
+.navbar-chulapa-fab .navbar-toggler-icon,
+.navbar-chulapa-fab .navbar-toggler-icon::before,
+.navbar-chulapa-fab .navbar-toggler-icon::after {
+  background-color: var(--brand-sand) !important; }
+
+.bg-uniform,
+footer,
+.footer,
+.footer-chulapa {
+  background-color: var(--brand-sand) !important;
+  color: var(--body-text) !important; }
+
+.footer-chulapa a,
+.footer-chulapa strong {
+  color: var(--brand-brown) !important; }
+
+.footer-chulapa .fa-circle {
+  color: var(--page-bg) !important; }
+
+.footer-chulapa .fa-inverse {
+  color: var(--brand-brown) !important; }
+
+.footer-chulapa hr,
+article#maincontent hr,
+hr {
+  background-color: var(--brand-brown) !important;
+  border-bottom: none !important;
+  border-top: 2px solid var(--brand-brown) !important;
+  display: block !important;
+  height: 2px !important; }
+
+.hero-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/home-hero.jpg") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 10px;
+  color: #ffffff !important;
+  margin-bottom: 30px;
+  padding: 100px 20px !important;
+  text-align: center !important; }
+
+.hero-container h1,
+.hero-container p {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); }
+
+.btn-primary {
+  background-color: var(--brand-brown) !important;
+  border-color: var(--brand-brown) !important;
+  border-radius: 5px;
+  color: #ffffff !important;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 20px;
+  padding: 12px 24px;
+  text-decoration: none !important; }
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--brand-green) !important;
+  border-color: var(--brand-green) !important;
+  color: #ffffff !important; }
+
+.stat-number {
+  color: var(--brand-brown) !important;
+  font-size: 2.5em;
+  margin: 0; }
+
+.interview-section {
+  background-color: var(--brand-sand) !important;
+  border-left: 8px solid var(--brand-brown) !important;
+  border-radius: 10px;
+  margin: 40px 0;
+  padding: 40px; }
+
+.interview-section h2,
+.interview-section h3 {
+  color: var(--brand-brown) !important; }
+
+.interview-lead {
+  border-bottom: 1px solid var(--brand-brown);
+  color: var(--body-text);
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 30px;
+  padding-bottom: 20px; }
+
+.interview-qa {
+  margin-top: 20px; }
+
+.interview-qa p {
+  margin-bottom: 15px; }
+
+.hero-subtitle {
+  text-align: center !important;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto; }
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  /* Migliora la spaziatura tra le parole */ }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+	<channel>
+		<title>Quando la montagna si spopola - Big Data Project | Progetto di Data Science</title>
+		<generator>(c) Chulapa Jekyll Theme RSS generator</generator>
+		<link>https://pellizzerfabiotommy.github.io/g3-2026-website</link>
+		<description>Un progetto di data science che analizza lo spopolamento dei piccoli comuni montani italiani, incrociando dati demografici, economici, climatici e infrastrutturali con l&apos;esperienza diretta di chi vive la montagna ogni giorno.</description>
+		<language>en-US</language>
+		<copyright>(c) 2026, </copyright>	
+		<pubDate>Wed, 29 Jul 2026 16:13:27 +0000</pubDate>
+		<lastBuildDate>Wed, 29 Jul 2026 16:13:27 +0000</lastBuildDate>
+		<category>blog</category>
+		<ttl>60</ttl>
+		<atom:link href="https://pellizzerfabiotommy.github.io/g3-2026-website/rss.xml" rel="self" type="application/rss+xml" />
+		<image>
+			<title>Quando la montagna si spopola - Big Data Project | Progetto di Data Science</title>
+			<url></url>
+			<link>https://pellizzerfabiotommy.github.io/g3-2026-website</link>
+			<description>Un progetto di data science che analizza lo spopolamento dei piccoli comuni montani italiani, incrociando dati demografici, economici, climatici e infrastrutturali con l&apos;esperienza diretta di chi vive la montagna ogni giorno.</description>
+		</image></channel>
+</rss>
